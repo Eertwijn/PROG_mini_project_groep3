@@ -1,3 +1,7 @@
 Jo
+<<<<<<< Updated upstream
 
 Sam lekker bezig!
+=======
+YO YO YOYOYO
+>>>>>>> Stashed changes
