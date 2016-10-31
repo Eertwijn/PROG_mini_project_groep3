@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 bla bla bal
 
 Jo pik eertwijn hier geweest!
 Jeroen is hier ook geweest
 
 Tweede wijziging door Eertwijn
+=======
+bla bla bal
+>>>>>>> parent of aea88a5... Eertwijn
