@@ -11,11 +11,16 @@ responseStationLijst = requests.get(stationsVanAPI, auth=inlogegevens)
 
 stationsNamen = xmltodict.parse((responseStationLijst.text))
 checkWelkStation = stationsNamen['Stations']['Station']
+lijstVanStations = []
+for station in checkWelkStation:
+    lijstVanStations.append(station['Namen']['Kort'])
+print(lijstVanStations)
+
 
 stationInput = input("Van welk station wil je informatie?(Vul de korte naam van het station in) ")
 
 for kortenamen in checkWelkStation:
-    while stationInput not in kortenamen['Namen']['Kort']:
+    while stationInput not in kortenamen['Station']['Namen']['Kort']:
         stationInput = input("Je station komt niet voor in onze database vul opnieuw in: ")
     else:
         code = kortenamen['Code'].lower()
@@ -43,7 +48,7 @@ ResponseStationsXML = xmltodict.parse(responseEinstations.text)
 
 bestemmingen = ResponseStationsXML['ActueleVertrekTijden']['VertrekkendeTrein']
 
-print("EindBestemmingen vanaf ", kortenamen['Namen']['Kort'], ": \n")
+print("EindBestemmingen vanaf ", kortenamen['Namen']['Kort'], ": ")
 for namen in bestemmingen:
     eindBestemmingen  = namen['EindBestemming']
     vertrekTijden = namen['VertrekTijd']
