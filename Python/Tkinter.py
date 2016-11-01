@@ -25,24 +25,37 @@ koptekst = Label(master=achterkant,
 koptekst.pack()
 
 #Plaatje
-photo = PhotoImage(file='plaatjeNS.gif')
+plaatjeNS = PhotoImage(file='plaatjeNS.gif')
 
 plaatje = Label(master=achterkant,
-                image=photo,
+                image=plaatjeNS,
                 width=1140,
                 height=400)
 plaatje.pack()
 
 #Onderste blauwe balk
-
+balk = Canvas(master=achterkant,
+                bg= 'blue',
+                height=100)
+balk.pack(side=BOTTOM, fill=X)
 
 #knoppen voor de taal
 #Knop 1
-knop1 = Button(master=achterkant, text='Druk hierNL', command=taalNL)
-knop1.pack(pady=10)
+vlagNL = PhotoImage(file='vlagNL.gif').subsample(4)
+knop1 = Button(master=balk,
+               image=vlagNL,
+               command=taalNL,
+
+               )
+knop1.pack(side=LEFT, pady=10, padx=10)
 
 #Knop 2
-knop2 = Button(master=achterkant, text='Druk hierENG', command=taalENG)
-knop2.pack(pady=10)
+vlagENG= PhotoImage(file='vlagENG.gif').subsample(4)
+knop2 = Button(master=balk,
+               image=vlagENG,
+               command=taalENG,
+
+               )
+knop2.pack(side=LEFT, pady=10, padx=10)
 
 root.mainloop()
