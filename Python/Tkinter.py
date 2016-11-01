@@ -40,7 +40,7 @@ balk = Canvas(master=achterkant,
 balk.pack(side=BOTTOM, fill=X)
 
 #knoppen voor de taal
-#Knop 1
+#Taal knop 1
 vlagNL = PhotoImage(file='vlagNL.gif').subsample(4)
 knop1 = Button(master=balk,
                image=vlagNL,
@@ -49,7 +49,7 @@ knop1 = Button(master=balk,
                )
 knop1.pack(side=LEFT, pady=10, padx=10)
 
-#Knop 2
+#Taal knop 2
 vlagENG= PhotoImage(file='vlagENG.gif').subsample(4)
 knop2 = Button(master=balk,
                image=vlagENG,
@@ -57,5 +57,15 @@ knop2 = Button(master=balk,
 
                )
 knop2.pack(side=LEFT, pady=10, padx=10)
+
+#Knop eigenstation
+knop3 = Button(master=achterkant,
+               text="Eigenstation")
+knop3.pack()
+
+#Knop anderstation
+knop4 = Button(master=achterkant,
+               text="Anderstation")
+knop4.pack()
 
 root.mainloop()
