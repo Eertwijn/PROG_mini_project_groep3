@@ -2,8 +2,23 @@ import requests
 import xmltodict
 
 
+def stationsLijst():
 
-#inlog gegevens als variable
+    #inlog gegevens als variable
+    inlogegevens = ('sam.zandee@gmail.com', 'PR15gnkYhlxUuWrjXFnZ_yBHswBfR-clw1oYMkbMW7eeeNLD0sGd5A')
+
+    stationsVanAPI = 'http://webservices.ns.nl/ns-api-stations-v2'
+    responseStationLijst = requests.get(stationsVanAPI, auth=inlogegevens)
+
+    stationsNamen = xmltodict.parse((responseStationLijst.text))
+    checkWelkStation = stationsNamen['Stations']['Station']
+    lijstVanStations = []
+    for station in checkWelkStation:
+        lijstVanStations.append(station['Namen']['Kort'])
+    #print(lijstVanStations)
+    return(lijstVanStations)
+print(stationsLijst())
+
 inlogegevens = ('sam.zandee@gmail.com', 'PR15gnkYhlxUuWrjXFnZ_yBHswBfR-clw1oYMkbMW7eeeNLD0sGd5A')
 
 stationsVanAPI = 'http://webservices.ns.nl/ns-api-stations-v2'
@@ -11,12 +26,6 @@ responseStationLijst = requests.get(stationsVanAPI, auth=inlogegevens)
 
 stationsNamen = xmltodict.parse((responseStationLijst.text))
 checkWelkStation = stationsNamen['Stations']['Station']
-lijstVanStations = []
-for station in checkWelkStation:
-    lijstVanStations.append(station['Namen']['Kort'])
-print(lijstVanStations)
-
-
 stationInput = input("Van welk station wil je informatie?(Vul de korte naam van het station in) ")
 
 for kortenamen in checkWelkStation:
