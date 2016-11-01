@@ -2,6 +2,8 @@ import requests
 import xmltodict
 
 def stationsLijst():
+    """Deze functie doet een request naar de ns api. Het response van de api wordt geparst.
+    Daarna worden de stations opgeslagen in een lijst. Deze lijst wordt meegegeven aan station_Kiezen()"""
 
     #inlog gegevens als variable
     inlogegevens = ('sam.zandee@gmail.com', 'PR15gnkYhlxUuWrjXFnZ_yBHswBfR-clw1oYMkbMW7eeeNLD0sGd5A')
@@ -15,15 +17,18 @@ def stationsLijst():
     lijstVanStations = []
     for station in checkWelkStation:
         #Korte namen van de stations toevoegen
-        lijstVanStations.append(station['Code'])
         lijstVanStations.append(station['Namen']['Kort'])
-    #print(lijstVanStations)
+
     return(lijstVanStations)
+#De uitkomst van stationsLijst() wordt opgeslagen als variable
 lijstVanStations = stationsLijst()
 
 
 
 def station_Kiezen(lijstVanStations):
+    """Hier wordt aan de gebruiker gevraagt waar hij/zij is. Daarna wordt gekeken het station bestaat.
+    Als dat het geval is wordt het station opgeslagen. Is dit niet het geval, dan wordt er opnieuw gevraagt
+    of op welk station ze zijn."""
     #Er wordt gevraagt of utrecht het huidige station is
     invoer_station = input("Is dit uw huidige station(Utrecht Centraal)? ")
     station = ""
@@ -40,10 +45,14 @@ def station_Kiezen(lijstVanStations):
 
 
 def tijden_ophalen(station):
-    #inlogegevens.
+    """Deze functie wordt gebruikt om de de vertrektijden van het ingevoerde station op te vragen
+    van de ns api. Deze informatie wordt vervolgens weer teruggegeven"""
+
+    #inlogegevens
     authdetails = ('sam.zandee@gmail.com', 'PR15gnkYhlxUuWrjXFnZ_yBHswBfR-clw1oYMkbMW7eeeNLD0sGd5A')
     #de url die nodig is wordt bepaald door het station er aan te plakken
     apiurl = "http://webservices.ns.nl/ns-api-avt?station=" + station
+
     #de reactie wordt opgevraagt
     response = requests.get(apiurl, auth=authdetails)
     #de reactie wordt geparst
@@ -59,6 +68,7 @@ def tijden_ophalen(station):
     #de vertrektijden worden uitgeprint
     print (nuttige_info)
 
-#het programma wordt gedraait.
+#Het ingoeverde station uit station_Kiezen wordt opgeslagen als variable
 station = station_Kiezen(lijstVanStations)
+#Van Het ingevoerde station worden de tijden opgehaald.
 tijden_ophalen(station)
