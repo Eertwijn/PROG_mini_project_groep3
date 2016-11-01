@@ -1,10 +1,13 @@
 stations = ["Arnhem","Utrecht","Amsterdam"]
-def Station_Kiezen():
-    keuze = input("Is dit uw huidige station? ")
-    if keuze == "nee" or "no" or "Nee" or "No":
-        nieuw_station = ""
-        while nieuw_station not in stations:
-            nieuw_station = input("Voer een station in: ")
+
+def station_Kiezen():
+    invoer_station = input("Is dit uw huidige station? ")
+    station = ""
+    if invoer_station == "Nee":
+        while station not in stations:
+            station = input("Geef het station waar u zich bevindt: ")
+    else:
+        station = "Utrecht"
     return station
 
-Station_Kiezen()
+print("U heeft",station_Kiezen(),"aangegeven.")
