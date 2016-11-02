@@ -93,7 +93,7 @@ knop3.pack()
 
 #Knop anderstation
 knop4 = Button(master=achterkant,
-               text="Ander station",
+               text="Ander Station",
                font = ('Raleway', 15),
                bg= '#053593',
                fg= 'white',
