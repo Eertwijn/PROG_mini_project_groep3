@@ -15,8 +15,10 @@ def taalENG():
     taal = "ENG"
 
 def station_invullen():
-    if entry.get() in MasterApp.stationsLijst():
-        reisinformatie.insert(END, MasterApp.tijden_ophalen(entry.get, taal))
+    station = entry.get()
+    print(station)
+    if station in MasterApp.stationsLijst():
+        reisinformatie.insert(END, MasterApp.tijden_ophalen(station, taal))
     else:
         messagebox.showerror("Foutmelding","Dat station kennen wij niet")
 
@@ -48,7 +50,7 @@ def venster_openen():
     entry.pack()
 
     knop = Button(master=achterkant, text="Invullen", width=10, command=station_invullen)
-    knop.pack
+    knop.pack()
 
     global reisinformatie
     reisinformatie = Text(master=achterkant,
@@ -60,7 +62,7 @@ def venster_openen():
               height=25,
               width=150
               )
-    reisinformatie.pack
+    reisinformatie.pack()
 
     #Onderste blauwe balk
     balk = Canvas(master=achterkant,
