@@ -9,7 +9,7 @@ def taalENG():
     knopsluiten["text"] = "Close Window"
 
 def venster_openen():
-    root = Tk()
+    root = Toplevel()
     root.title("NS actuele vertrektijden")
     root.geometry("1500x1000")
 

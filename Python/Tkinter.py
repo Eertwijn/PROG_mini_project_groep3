@@ -94,7 +94,7 @@ knopAnders = Button(master=achterkant,
                fg= 'white',
                height= 3,
                width= 15,
-               command= knopAnder)
+               command=NewWindow.venster_openen)
 knopAnders.pack()
 
 root.mainloop()
