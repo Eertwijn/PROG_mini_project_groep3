@@ -4,11 +4,11 @@ import requests
 import xmltodict
 
 def taalNL():
-    koptekst["text"] = "Huidig Station"
+    #koptekst["text"] = "Huidig Station"
     knopsluiten["text"] = "Venster Sluiten"
 
 def taalENG():
-    koptekst["text"] = "Current Station"
+    #koptekst["text"] = "Current Station"
     knopsluiten["text"] = "Close Window"
 
 def infoUTCentraal(taal):
@@ -24,20 +24,20 @@ def infoUTCentraal(taal):
 
     nuttige_info = ""
 
+    #de vertrektijden worden uitgeprint
+    if taal == "NL":
+        columninfo = "{:<26} {:>10} {:>15} {:>10}".format("Eindbestemming", "Vertrektijd", "Vertraging", "Spoor")
+    else:
+        columninfo = "{:<26} {:>10} {:>15} {:>10}".format("Destination", "Time of Departure", "Delay", "Platform")
     #De vertrektijden worden opgezocht en op geslagen in nuttige_info=""
     for vertek in vertrekXML["ActueleVertrekTijden"]["VertrekkendeTrein"]:
         if "VertrekVertragingTekst" not in vertek:
-            nuttige_info += "{:<21} {:>10} {:>31}\n".format(vertek["EindBestemming"],vertek["VertrekTijd"][11:16], vertek["VertrekSpoor"]["#text"])
+            nuttige_info += "{:<21} {:>20} {:>31}\n".format(vertek["EindBestemming"],vertek["VertrekTijd"][11:16], vertek["VertrekSpoor"]["#text"])
         else:
-            nuttige_info += "{:<21} {:>10} {:>18} {:>12}\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16],vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"],)
-    #de vertrektijden worden uitgeprint
-    if taal == "NL":
-        print("{:<26} {:>10} {:>15} {:>10}".format("Eindbestemming", "Vertrektijd", "Vertraging", "Spoor"))
-    else:
-        print("{:<26} {:>10} {:>15} {:>10}".format("Destination", "Time of Departure", "Delay", "Platform"))
-
+            nuttige_info += "{:<21} {:>20} {:>18} {:>12}\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16],vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"],)
+    print(columninfo)
     print(nuttige_info)
-    return(nuttige_info)
+    return(columninfo, nuttige_info)
 
 
 root = Tk()
@@ -45,7 +45,7 @@ root.title("NS actuele vertrektijden")
 root.geometry("1500x1000")
 
 achterkant = Label(master=root,
-                   background="#FFCD4C"
+                   background="#FFC846"
 )
 achterkant.pack(fill=BOTH, expand=True)
 
@@ -53,27 +53,30 @@ achterkant.pack(fill=BOTH, expand=True)
 koptekst = Label(master=achterkant,
               font = ('Raleway', 30),
               text='Utrecht Centraal',
-              background='#FFCD4C',
+              background='#FFC846',
               height=3
               )
 koptekst.pack()
 taal = "NL"
 station = infoUTCentraal(taal)
+newline = "\n"
+reisinformatie = Text(master=achterkant,
+              font = ('Raleway', 16),
 
-reisinformatie = Label(master=achterkant,
-              font = ('Raleway', 12),
-              #command=infoUTCentraal(taal),
-              text=station,
+              #text=station,
 
-              background='#FFCD4C',
-              height=3
+              background='#FFC846',
+              height=25,
+              width=150
               )
 reisinformatie.pack()
-
+reisinformatie.insert(END, station[0])
+reisinformatie.insert(END, newline)
+reisinformatie.insert(END, station[1])
 
 #Onderste blauwe balk
 balk = Canvas(master=achterkant,
-                bg= '#053593',
+                bg= 'blue',
                 height=100)
 balk.pack(side=BOTTOM, fill=X)
 
@@ -98,7 +101,7 @@ knop2.pack(side=LEFT, pady=10, padx=10)
 knopsluiten = Button(master=balk,
                      text= "Programma sluiten",
                      font= ('Raleway', 12),
-                     bg= '#053593',
+                     bg= 'blue',
                      fg= 'white',
                      command=root.destroy)
 knopsluiten.pack(side=RIGHT, pady=10, padx=10)
