@@ -1,4 +1,5 @@
 from tkinter import *
+import NewWindow
 
 def taalNL():
     koptekst["text"] = "Actuele reistijden"
@@ -10,14 +11,7 @@ def taalENG():
     koptekst["text"] = "Actual traveltimes"
     knop3["text"] = "Current Station"
     knop4["text"] = "Other Station"
-    knopsluiten["text"] = "Close Programme"
-
-def knopHuidig():
-    print("Ok")
-
-
-def knopAnder():
-    print("OK2")
+    knopsluiten["text"] = "Close Program"
 
 root = Tk()
 root.title("NS actuele vertrektijden")
@@ -88,7 +82,7 @@ knop3 = Button(master=achterkant,
                fg= 'white',
                height= 3,
                width= 15,
-               command= knopHuidig)
+               command= NewWindow.venster_openen)
 knop3.pack()
 
 #Knop anderstation
