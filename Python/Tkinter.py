@@ -9,22 +9,9 @@ def taalNL():
 
 def taalENG():
     koptekst["text"] = "Actual traveltimes"
-<<<<<<< HEAD
-    knop3["text"] = "Current Station"
-    knop4["text"] = "Other Station"
-    knopsluiten["text"] = "Close Program"
-=======
     knopHier["text"] = "Current Station"
     knopAnders["text"] = "Other Station"
     knopsluiten["text"] = "Close Programme"
-
-def knopHuidig():
-    print("Ok")
-
-
-def knopAnder():
-    print("OK2")
->>>>>>> origin/master
 
 root = Tk()
 root.title("NS actuele vertrektijden")
@@ -95,13 +82,8 @@ knopHier = Button(master=achterkant,
                fg= 'white',
                height= 3,
                width= 15,
-<<<<<<< HEAD
                command= NewWindow.venster_openen)
-knop3.pack()
-=======
-               command= knopHuidig)
 knopHier.pack()
->>>>>>> origin/master
 
 #Knop anderstation
 knopAnders = Button(master=achterkant,
@@ -110,8 +92,8 @@ knopAnders = Button(master=achterkant,
                bg= '#053593',
                fg= 'white',
                height= 3,
-               width= 15,
-               command= knopAnder)
+               width= 15,)
+               #command= knopAnders)
 knopAnders.pack()
 
 root.mainloop()
