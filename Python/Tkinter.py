@@ -1,17 +1,23 @@
 from tkinter import *
-import NewWindow
 
 def taalNL():
     koptekst["text"] = "Actuele reistijden"
-    knopHier["text"] = "Huidig Station"
-    knopAnders["text"] = "Ander Station"
+    knop3["text"] = "Huidig Station"
+    knop4["text"] = "Ander Station"
     knopsluiten["text"] = "Programma Sluiten"
 
 def taalENG():
     koptekst["text"] = "Actual traveltimes"
-    knopHier["text"] = "Current Station"
-    knopAnders["text"] = "Other Station"
+    knop3["text"] = "Current Station"
+    knop4["text"] = "Other Station"
     knopsluiten["text"] = "Close Programme"
+
+def knopHuidig():
+    print("Ok")
+
+
+def knopAnder():
+    print("OK2")
 
 root = Tk()
 root.title("NS actuele vertrektijden")
@@ -42,26 +48,26 @@ plaatje.pack()
 
 #Onderste blauwe balk
 balk = Canvas(master=achterkant,
-                bg= 'blue',
+                bg= '#053593',
                 height=100)
 balk.pack(side=BOTTOM, fill=X)
 
 #knoppen voor de taal
 #Taal knop 1
 vlagNL = PhotoImage(file='vlagNL.gif').subsample(4)
-knopNL = Button(master=balk,
+knop1 = Button(master=balk,
                image=vlagNL,
                command=taalNL,
                )
-knopNL.pack(side=LEFT, pady=10, padx=10)
+knop1.pack(side=LEFT, pady=10, padx=10)
 
 #Taal knop 2
 vlagENG= PhotoImage(file='vlagENG.gif').subsample(4)
-knopENG = Button(master=balk,
+knop2 = Button(master=balk,
                image=vlagENG,
                command=taalENG,
                )
-knopENG.pack(side=LEFT, pady=10, padx=10)
+knop2.pack(side=LEFT, pady=10, padx=10)
 
 #Knop sluiten
 knopsluiten = Button(master=balk,
@@ -75,25 +81,25 @@ knopsluiten.pack(side=RIGHT, pady=10, padx=10)
 
 
 #Knop eigenstation
-knopHier = Button(master=achterkant,
+knop3 = Button(master=achterkant,
                text="Huidig Station",
                font = ('Raleway', 15),
                bg= '#053593',
                fg= 'white',
                height= 3,
                width= 15,
-               command= NewWindow.venster_openen)
-knopHier.pack()
+               command= knopHuidig)
+knop3.pack()
 
 #Knop anderstation
-knopAnders = Button(master=achterkant,
+knop4 = Button(master=achterkant,
                text="Ander station",
                font = ('Raleway', 15),
                bg= '#053593',
                fg= 'white',
                height= 3,
-               width= 15,)
-               #command= knopAnders)
-knopAnders.pack()
+               width= 15,
+               command= knopAnder)
+knop4.pack()
 
 root.mainloop()
