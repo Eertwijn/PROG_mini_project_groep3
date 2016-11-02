@@ -8,13 +8,16 @@ def taalNL():
     knopsluiten["text"] = "Venster Sluiten"
     global taal
     taal = "NL"
-    infoUTCentraal(taal)
+    reisinformatie.delete(1.0, END)
+    reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
 
 def taalENG():
     #koptekst["text"] = "Current Station"
     knopsluiten["text"] = "Close Window"
     global taal
     taal = "ENG"
+    reisinformatie.delete(1.0, END)
+    reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
 
 def venster_openen():
     root = Toplevel()
@@ -68,6 +71,7 @@ def venster_openen():
 
     # station = infoUTCentraal(taal)
     # newline = "\n"
+    global reisinformatie
     reisinformatie = Text(master=achterkant,
                   font = ('Raleway', 16),
 
