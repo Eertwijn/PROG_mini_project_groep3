@@ -3,6 +3,7 @@ import MasterApp
 import requests
 import xmltodict
 
+#Functies voor het wijzigen van de taal
 def taalNL():
     #koptekst["text"] = "Huidig Station"
     knopsluiten["text"] = "Venster Sluiten"
@@ -19,6 +20,7 @@ def taalENG():
     reisinformatie.delete(1.0, END)
     reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
 
+#Functie voor het openen van het nieuwe venster
 def venster_openen():
     root = Toplevel()
     root.title("NS actuele vertrektijden")
@@ -26,37 +28,9 @@ def venster_openen():
     global taal
     taal = "NL"
 
-    # def infoUTCentraal(taal):
-    #     #inlogegevens
-    #     authdetails = ('sam.zandee@gmail.com', 'PR15gnkYhlxUuWrjXFnZ_yBHswBfR-clw1oYMkbMW7eeeNLD0sGd5A')
-    #     #de url die nodig is wordt bepaald door het station er aan te plakken
-    #     apiurl = "http://webservices.ns.nl/ns-api-avt?station=ut"
-    #
-    #     #de reactie wordt opgevraagt
-    #     response = requests.get(apiurl, auth=authdetails)
-    #     #de reactie wordt geparst
-    #     vertrekXML = xmltodict.parse(response.text)
-    #
-    #     nuttige_info = ""
-    #
-    #     #de vertrektijden worden uitgeprint
-    #     if taal == "NL":
-    #         columninfo = "{:<26} {:>10} {:>15} {:>10}".format("Eindbestemming", "Vertrektijd", "Vertraging", "Spoor")
-    #     else:
-    #         columninfo = "{:<26} {:>10} {:>15} {:>10}".format("Destination", "Time of Departure", "Delay", "Platform")
-    #     #De vertrektijden worden opgezocht en op geslagen in nuttige_info=""
-    #     for vertek in vertrekXML["ActueleVertrekTijden"]["VertrekkendeTrein"]:
-    #         if "VertrekVertragingTekst" not in vertek:
-    #             nuttige_info += "{:<21} {:>20} {:>31}\n".format(vertek["EindBestemming"],vertek["VertrekTijd"][11:16], vertek["VertrekSpoor"]["#text"])
-    #         else:
-    #             nuttige_info += "{:<21} {:>20} {:>18} {:>12}\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16],vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"],)
-    #     print(columninfo)
-    #     print(nuttige_info)
-    #     return(columninfo, nuttige_info)
-
+    #Achterkant
     achterkant = Label(master=root,
-                       background="#FFC846"
-    )
+                       background="#FFC846")
     achterkant.pack(fill=BOTH, expand=True)
 
     #Tekst boven
@@ -69,22 +43,15 @@ def venster_openen():
                   )
     koptekst.pack()
 
-    # station = infoUTCentraal(taal)
-    # newline = "\n"
+    #Tekst box aanmaken
     global reisinformatie
     reisinformatie = Text(master=achterkant,
                   font = ('Raleway', 16),
-
-                  #text=station,
-
                   background='#FFC846',
                   height=25,
                   width=150
                   )
     reisinformatie.pack()
-    # reisinformatie.insert(END, station[0])
-    # reisinformatie.insert(END, newline)
-    # reisinformatie.insert(END, station[1])
     reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
 
     #Onderste blauwe balk
