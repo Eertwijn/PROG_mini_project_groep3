@@ -30,7 +30,8 @@ def station_Kiezen(lijstVanStations):
     Als dat het geval is wordt het station opgeslagen. Is dit niet het geval, dan wordt er opnieuw gevraagt
     of op welk station ze zijn."""
     #Er wordt gevraagt of utrecht het huidige station is
-    invoer_station = input("Is dit uw huidige station(Utrecht Centraal)? ")
+    invoer_station = input("Is dit uw huidige station(Utrecht Centraal)? (Ja/Nee)")
+
     station = ""
     #als Utrecht niet het huidige station is wordt er gevraagt waar de persoon zich bevindt
     if invoer_station == "Nee":
@@ -44,7 +45,7 @@ def station_Kiezen(lijstVanStations):
     return station
 
 
-def tijden_ophalen(station):
+def tijden_ophalen(station, taal):
     """Deze functie wordt gebruikt om de de vertrektijden van het ingevoerde station op te vragen
     van de ns api. Deze informatie wordt vervolgens weer teruggegeven"""
 
@@ -59,14 +60,19 @@ def tijden_ophalen(station):
     vertrekXML = xmltodict.parse(response.text)
 
     nuttige_info = ""
+
     #De vertrektijden worden opgezocht en op geslagen in nuttige_info=""
     for vertek in vertrekXML["ActueleVertrekTijden"]["VertrekkendeTrein"]:
         if "VertrekVertragingTekst" not in vertek:
-            nuttige_info += "De trein naar {} vertrekt om {} op spoor {}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekSpoor"]["#text"])
+            nuttige_info += "{:<21} {:>10} {:>31}\n".format(vertek["EindBestemming"],vertek["VertrekTijd"][11:16], vertek["VertrekSpoor"]["#text"])
         else:
-            nuttige_info += "De trein naar {} vertrekt om {} {} op spoor {}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"])
+            nuttige_info += "{:<21} {:>10} {:>18} {:>12}\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16],vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"],)
     #de vertrektijden worden uitgeprint
-    print (nuttige_info)
+    if taal == "NL":
+        print("{:<26} {:>10} {:>15} {:>10}".format("Eindbestemming", "Vertrektijd", "Vertraging", "Spoor"))
+    else:
+        print("{:<26} {:>10} {:>15} {:>10}".format("Destination", "Time of Departure", "Delay", "Platform"))
+    print(nuttige_info)
 
 #Het ingoeverde station uit station_Kiezen wordt opgeslagen als variable
 station = station_Kiezen(lijstVanStations)
