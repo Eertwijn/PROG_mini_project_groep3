@@ -1,5 +1,5 @@
 from tkinter import *
-import NewWindow
+import Tkinter_Inputbox
 import ReistijdenUtrechtCentraal
 
 #Functie om de taal naar het Nederlands aan te passen.
@@ -102,7 +102,7 @@ knopAnders = Button(master=box,
                fg= 'white',
                height= 3,
                width= 15,
-               command=NewWindow.venster_openen)
+               command=Tkinter_Inputbox.venster_openen)
 knopAnders.pack(side= RIGHT, padx= 20, pady= 30)
 
 root.mainloop()
