@@ -1,20 +1,29 @@
 from tkinter import *
+from tkinter import messagebox
 import MasterApp
 
 def taalNL():
     koptekst["text"] = "Huidig Station"
     knopsluiten["text"] = "Venster Sluiten"
+    global taal
+    taal = "NL"
 
 def taalENG():
     koptekst["text"] = "Current Station"
     knopsluiten["text"] = "Close Window"
+    global taal
+    taal = "ENG"
 
 def station_invullen():
     if entry.get() in MasterApp.stationsLijst():
-        
+        reisinformatie.insert(END, MasterApp.tijden_ophalen(entry.get, taal))
+    else:
+        messagebox.showerror("Foutmelding","Dat station kennen wij niet")
 
 
 def venster_openen():
+    global taal
+    taal = "NL"
     root = Toplevel()
     root.title("NS actuele vertrektijden")
     root.geometry("1500x1000")
@@ -40,6 +49,18 @@ def venster_openen():
 
     knop = Button(master=achterkant, text="Invullen", width=10, command=station_invullen)
     knop.pack
+
+    global reisinformatie
+    reisinformatie = Text(master=achterkant,
+              font = ('Raleway', 16),
+
+              #text=station,
+
+              background='#FFC846',
+              height=25,
+              width=150
+              )
+    reisinformatie.pack
 
     #Onderste blauwe balk
     balk = Canvas(master=achterkant,
@@ -76,3 +97,4 @@ def venster_openen():
 
     root.mainloop()
 
+venster_openen()
