@@ -45,7 +45,7 @@ root.title("NS actuele vertrektijden")
 root.geometry("1500x1000")
 
 achterkant = Label(master=root,
-                   background="FFCD4C"
+                   background="#FFCD4C"
 )
 achterkant.pack(fill=BOTH, expand=True)
 
@@ -53,7 +53,7 @@ achterkant.pack(fill=BOTH, expand=True)
 koptekst = Label(master=achterkant,
               font = ('Raleway', 30),
               text='Utrecht Centraal',
-              background='FFCD4C',
+              background='#FFCD4C',
               height=3
               )
 koptekst.pack()
@@ -65,7 +65,7 @@ reisinformatie = Label(master=achterkant,
               #command=infoUTCentraal(taal),
               text=station,
 
-              background='FFCD4C',
+              background='#FFCD4C',
               height=3
               )
 reisinformatie.pack()
