@@ -1,23 +1,18 @@
 from tkinter import *
+import NewWindow
 
 def taalNL():
     koptekst["text"] = "Actuele reistijden"
-    knop3["text"] = "Huidig Station"
-    knop4["text"] = "Ander Station"
+    knopHier["text"] = "Huidig Station"
+    knopAnders["text"] = "Ander Station"
     knopsluiten["text"] = "Programma Sluiten"
 
 def taalENG():
     koptekst["text"] = "Actual traveltimes"
-    knop3["text"] = "Current Station"
-    knop4["text"] = "Other Station"
+    knopHier["text"] = "Current Station"
+    knopAnders["text"] = "Other Station"
     knopsluiten["text"] = "Close Programme"
 
-def knopHuidig():
-    print("Ok")
-
-
-def knopAnder():
-    print("OK2")
 
 root = Tk()
 root.title("NS actuele vertrektijden")
@@ -55,19 +50,19 @@ balk.pack(side=BOTTOM, fill=X)
 #knoppen voor de taal
 #Taal knop 1
 vlagNL = PhotoImage(file='vlagNL.gif').subsample(4)
-knop1 = Button(master=balk,
+knopNL = Button(master=balk,
                image=vlagNL,
                command=taalNL,
                )
-knop1.pack(side=LEFT, pady=10, padx=10)
+knopNL.pack(side=LEFT, pady=10, padx=10)
 
 #Taal knop 2
 vlagENG= PhotoImage(file='vlagENG.gif').subsample(4)
-knop2 = Button(master=balk,
+knopENG = Button(master=balk,
                image=vlagENG,
                command=taalENG,
                )
-knop2.pack(side=LEFT, pady=10, padx=10)
+knopENG.pack(side=LEFT, pady=10, padx=10)
 
 #Knop sluiten
 knopsluiten = Button(master=balk,
@@ -81,18 +76,18 @@ knopsluiten.pack(side=RIGHT, pady=10, padx=10)
 
 
 #Knop eigenstation
-knop3 = Button(master=achterkant,
+knopHier = Button(master=achterkant,
                text="Huidig Station",
                font = ('Raleway', 15),
                bg= '#053593',
                fg= 'white',
                height= 3,
                width= 15,
-               command= knopHuidig)
-knop3.pack()
+               command= NewWindow.venster_openen)
+knopHier.pack()
 
 #Knop anderstation
-knop4 = Button(master=achterkant,
+knopAnders = Button(master=achterkant,
                text="Ander Station",
                font = ('Raleway', 15),
                bg= '#053593',
@@ -100,6 +95,6 @@ knop4 = Button(master=achterkant,
                height= 3,
                width= 15,
                command= knopAnder)
-knop4.pack()
+knopAnders.pack()
 
 root.mainloop()
