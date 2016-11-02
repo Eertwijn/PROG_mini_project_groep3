@@ -1,5 +1,6 @@
 from tkinter import *
 import NewWindow
+import ReistijdenUtrechtCentraal
 
 #Functie om de taal naar het Nederlands aan te passen.
 def taalNL():
@@ -76,6 +77,7 @@ knopsluiten = Button(master=balk,
                      command=root.destroy)
 knopsluiten.pack(side=RIGHT, pady=10, padx=10)
 
+#Een Frame waar de knoppen Hier en Anders in staan
 box = Frame(master=achterkant,
             bg= '#FFCD4C'
             )
@@ -89,7 +91,7 @@ knopHier = Button(master=box,
                fg= 'white',
                height= 3,
                width= 15,
-               command= NewWindow.venster_openen)
+               command= ReistijdenUtrechtCentraal.venster_openen)
 knopHier.pack(side= LEFT, padx= 20, pady= 30)
 
 #Knop anderstation
