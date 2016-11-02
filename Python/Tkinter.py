@@ -24,7 +24,7 @@ root.title("NS actuele vertrektijden")
 root.geometry("1500x1000")
 
 achterkant = Label(master=root,
-                   background="#FFC846"
+                   background="#FFCD4C"
 )
 achterkant.pack(fill=BOTH, expand=True)
 
@@ -32,7 +32,7 @@ achterkant.pack(fill=BOTH, expand=True)
 koptekst = Label(master=achterkant,
               font = ('Raleway', 30),
               text='Actuele reistijden',
-              background='#FFC846',
+              background='#FFCD4C',
               height=3
               )
 koptekst.pack()
@@ -73,7 +73,7 @@ knop2.pack(side=LEFT, pady=10, padx=10)
 knopsluiten = Button(master=balk,
                      text= "Programma sluiten",
                      font= ('Raleway', 12),
-                     bg= 'blue',
+                     bg= '#053593',
                      fg= 'white',
                      command=root.destroy)
 knopsluiten.pack(side=RIGHT, pady=10, padx=10)
@@ -84,7 +84,7 @@ knopsluiten.pack(side=RIGHT, pady=10, padx=10)
 knop3 = Button(master=achterkant,
                text="Huidig Station",
                font = ('Raleway', 15),
-               bg= 'blue',
+               bg= '#053593',
                fg= 'white',
                height= 3,
                width= 15,
