@@ -2,9 +2,15 @@ from tkinter import *
 
 def taalNL():
     koptekst["text"] = "Actuele reistijden"
+    knop3["text"] = "Huidig Station"
+    knop4["text"] = "Ander Station"
+    knopsluiten["text"] = "Programma Sluiten"
 
 def taalENG():
     koptekst["text"] = "Actual traveltimes"
+    knop3["text"] = "Current Station"
+    knop4["text"] = "Other Station"
+    knopsluiten["text"] = "Close Programme"
 
 def knopHuidig():
     print("Ok")
@@ -76,7 +82,7 @@ knopsluiten.pack(side=RIGHT, pady=10, padx=10)
 
 #Knop eigenstation
 knop3 = Button(master=achterkant,
-               text="Eigenstation",
+               text="Huidig Station",
                font = ('Raleway', 15),
                bg= 'blue',
                fg= 'white',
@@ -87,7 +93,7 @@ knop3.pack()
 
 #Knop anderstation
 knop4 = Button(master=achterkant,
-               text="Anderstation",
+               text="Ander station",
                font = ('Raleway', 15),
                bg= 'blue',
                fg= 'white',
