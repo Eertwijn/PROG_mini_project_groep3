@@ -45,7 +45,7 @@ def station_Kiezen(lijstVanStations):
     return station
 
 
-def tijden_ophalen(station):
+def tijden_ophalen(station, taal):
     """Deze functie wordt gebruikt om de de vertrektijden van het ingevoerde station op te vragen
     van de ns api. Deze informatie wordt vervolgens weer teruggegeven"""
 
@@ -68,7 +68,10 @@ def tijden_ophalen(station):
         else:
             nuttige_info += "{:<21} {:>10} {:>18} {:>12}\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16],vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"],)
     #de vertrektijden worden uitgeprint
-    print("{:<26} {:>10} {:>15} {:>10}".format("Eindbestemming", "Vertrektijd", "Vertraging", "Spoor"))
+    if taal == "NL":
+        print("{:<26} {:>10} {:>15} {:>10}".format("Eindbestemming", "Vertrektijd", "Vertraging", "Spoor"))
+    else:
+        print("{:<26} {:>10} {:>15} {:>10}".format("Destination", "Time of Departure", "Delay", "Platform"))
     print(nuttige_info)
 
 #Het ingoeverde station uit station_Kiezen wordt opgeslagen als variable
