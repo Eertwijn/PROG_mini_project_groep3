@@ -61,6 +61,11 @@ def tijden_ophalen(station, taal):
 
     nuttige_info = ""
 
+    if taal == "NL":
+        nuttige_info += "{:<26} {:>10} {:>15} {:>10}\n".format("Eindbestemming", "Vertrektijd", "Vertraging", "Spoor")
+    else:
+        nuttige_info += "{:<26} {:>10} {:>15} {:>10}\n".format("Destination", "Time of Departure", "Delay", "Platform")
+
     #De vertrektijden worden opgezocht en op geslagen in nuttige_info=""
     for vertek in vertrekXML["ActueleVertrekTijden"]["VertrekkendeTrein"]:
         if "VertrekVertragingTekst" not in vertek:
@@ -68,13 +73,9 @@ def tijden_ophalen(station, taal):
         else:
             nuttige_info += "{:<21} {:>10} {:>18} {:>12}\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16],vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"],)
     #de vertrektijden worden uitgeprint
-    if taal == "NL":
-        print("{:<26} {:>10} {:>15} {:>10}".format("Eindbestemming", "Vertrektijd", "Vertraging", "Spoor"))
-    else:
-        print("{:<26} {:>10} {:>15} {:>10}".format("Destination", "Time of Departure", "Delay", "Platform"))
-    print(nuttige_info)
+    return nuttige_info
 
 #Het ingoeverde station uit station_Kiezen wordt opgeslagen als variable
-station = station_Kiezen(lijstVanStations)
+#station = station_Kiezen(lijstVanStations)
 #Van Het ingevoerde station worden de tijden opgehaald.
-tijden_ophalen(station)
+#tijden_ophalen(station)
