@@ -21,12 +21,12 @@ def taalENG():
     reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
 
 #Functie voor het openen van het nieuwe venster
-def venster_openen():
+def venster_openen(meegeeftaal):
     root = Toplevel()
     root.title("NS actuele vertrektijden")
     root.geometry("1500x1000")
     global taal
-    taal = "NL"
+    taal = meegeeftaal
 
     #Achterkant
     achterkant = Label(master=root,

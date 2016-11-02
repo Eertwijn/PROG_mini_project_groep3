@@ -1,5 +1,5 @@
 from tkinter import *
-import Tkinter_Inputbox
+import AnderStation
 import ReistijdenUtrechtCentraal
 
 #Functie om de taal naar het Nederlands aan te passen.
@@ -8,6 +8,8 @@ def taalNL():
     knopHier["text"] = "Huidig Station"
     knopAnders["text"] = "Ander Station"
     knopsluiten["text"] = "Programma Sluiten"
+    global taal
+    taal = "NL"
 
 #Functie om de taal naar het Engels aan te passen.
 def taalENG():
@@ -15,6 +17,11 @@ def taalENG():
     knopHier["text"] = "Current Station"
     knopAnders["text"] = "Other Station"
     knopsluiten["text"] = "Close Programme"
+    global taal
+    taal = "ENG"
+
+global taal
+taal = "NL"
 
 #Hoofdscherm
 root = Tk()
@@ -91,18 +98,18 @@ knopHier = Button(master=box,
                fg= 'white',
                height= 3,
                width= 15,
-               command= ReistijdenUtrechtCentraal.venster_openen)
+               command= lambda: ReistijdenUtrechtCentraal.venster_openen(taal))
 knopHier.pack(side= LEFT, padx= 20, pady= 30)
 
 #Knop anderstation
 knopAnders = Button(master=box,
-               text="Ander Station",
-               font = ('Raleway', 15),
-               bg= '#053593',
-               fg= 'white',
-               height= 3,
-               width= 15,
-               command=Tkinter_Inputbox.venster_openen)
+                    text="Ander Station",
+                    font = ('Raleway', 15),
+                    bg= '#053593',
+                    fg= 'white',
+                    height= 3,
+                    width= 15,
+                    command= lambda: AnderStation.venster_openen(taal))
 knopAnders.pack(side= RIGHT, padx= 20, pady= 30)
 
 root.mainloop()
