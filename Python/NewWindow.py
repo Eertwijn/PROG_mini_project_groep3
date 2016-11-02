@@ -19,6 +19,7 @@ def venster_openen():
     achterkant.pack(fill=BOTH, expand=True)
 
     #Tekst boven
+    global koptekst
     koptekst = Label(master=achterkant,
                   font = ('Raleway', 30),
                   text='Huidig Station',
@@ -51,6 +52,7 @@ def venster_openen():
     knop2.pack(side=LEFT, pady=10, padx=10)
 
     #Knop sluiten
+    global knopsluiten
     knopsluiten = Button(master=balk,
                          text= "Venster sluiten",
                          font= ('Raleway', 12),
