@@ -1,4 +1,5 @@
 from tkinter import *
+import NewWindow
 
 def taalNL():
     koptekst["text"] = "Actuele reistijden"
@@ -12,12 +13,6 @@ def taalENG():
     knopAnders["text"] = "Other Station"
     knopsluiten["text"] = "Close Programme"
 
-def knopHuidig():
-    print("Ok")
-
-
-def knopAnder():
-    print("OK2")
 
 root = Tk()
 root.title("NS actuele vertrektijden")
@@ -48,7 +43,7 @@ plaatje.pack()
 
 #Onderste blauwe balk
 balk = Canvas(master=achterkant,
-                bg= 'blue',
+                bg= '#053593',
                 height=100)
 balk.pack(side=BOTTOM, fill=X)
 
@@ -88,18 +83,18 @@ knopHier = Button(master=achterkant,
                fg= 'white',
                height= 3,
                width= 15,
-               command= knopHuidig)
+               command= NewWindow.venster_openen)
 knopHier.pack()
 
 #Knop anderstation
 knopAnders = Button(master=achterkant,
-               text="Ander station",
+               text="Ander Station",
                font = ('Raleway', 15),
                bg= '#053593',
                fg= 'white',
                height= 3,
                width= 15,
-               command= knopAnder)
+               command=NewWindow.venster_openen)
 knopAnders.pack()
 
 root.mainloop()
