@@ -1,23 +1,26 @@
 from tkinter import *
 import NewWindow
 
+#Functie om de taal naar het Nederlands aan te passen.
 def taalNL():
     koptekst["text"] = "Actuele reistijden"
     knopHier["text"] = "Huidig Station"
     knopAnders["text"] = "Ander Station"
     knopsluiten["text"] = "Programma Sluiten"
 
+#Functie om de taal naar het Engels aan te passen.
 def taalENG():
     koptekst["text"] = "Actual traveltimes"
     knopHier["text"] = "Current Station"
     knopAnders["text"] = "Other Station"
     knopsluiten["text"] = "Close Programme"
 
-
+#Hoofdscherm
 root = Tk()
 root.title("NS actuele vertrektijden")
 root.geometry("1500x1000")
 
+#Achtergrond kleur
 achterkant = Label(master=root,
                    background="#FFCD4C"
 )
@@ -73,10 +76,13 @@ knopsluiten = Button(master=balk,
                      command=root.destroy)
 knopsluiten.pack(side=RIGHT, pady=10, padx=10)
 
-
+box = Frame(master=achterkant,
+            bg= '#FFCD4C'
+            )
+box.pack()
 
 #Knop eigenstation
-knopHier = Button(master=achterkant,
+knopHier = Button(master=box,
                text="Huidig Station",
                font = ('Raleway', 15),
                bg= '#053593',
@@ -84,10 +90,10 @@ knopHier = Button(master=achterkant,
                height= 3,
                width= 15,
                command= NewWindow.venster_openen)
-knopHier.pack()
+knopHier.pack(side= LEFT, padx= 20, pady= 30)
 
 #Knop anderstation
-knopAnders = Button(master=achterkant,
+knopAnders = Button(master=box,
                text="Ander Station",
                font = ('Raleway', 15),
                bg= '#053593',
@@ -95,6 +101,6 @@ knopAnders = Button(master=achterkant,
                height= 3,
                width= 15,
                command=NewWindow.venster_openen)
-knopAnders.pack()
+knopAnders.pack(side= RIGHT, padx= 20, pady= 30)
 
 root.mainloop()
