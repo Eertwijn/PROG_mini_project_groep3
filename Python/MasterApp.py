@@ -60,19 +60,18 @@ def tijden_ophalen(station, taal):
     vertrekXML = xmltodict.parse(response.text)
 
     nuttige_info = ""
-
     if taal == "NL":
-        nuttige_info += "{:<26} {:>10} {:>15} {:>10}\n".format("Eindbestemming", "Vertrektijd", "Vertraging", "Spoor")
+        for vertek in vertrekXML["ActueleVertrekTijden"]["VertrekkendeTrein"]:
+            if "VertrekVertragingTekst" not in vertek:
+                nuttige_info += "De trein naar {} vertrekt om {} op spoor {}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekSpoor"]["#text"])
+            else:
+                nuttige_info += "De trein naar {} vertrekt om {} {} op spoor {}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"])
     else:
-        nuttige_info += "{:<26} {:>10} {:>15} {:>10}\n".format("Destination", "Time of Departure", "Delay", "Platform")
-
-    #De vertrektijden worden opgezocht en op geslagen in nuttige_info=""
-    for vertek in vertrekXML["ActueleVertrekTijden"]["VertrekkendeTrein"]:
-        if "VertrekVertragingTekst" not in vertek:
-            nuttige_info += "{:<21} {:>10} {:>31}\n".format(vertek["EindBestemming"],vertek["VertrekTijd"][11:16], vertek["VertrekSpoor"]["#text"])
-        else:
-            nuttige_info += "{:<21} {:>10} {:>18} {:>12}\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16],vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"],)
-    #de vertrektijden worden uitgeprint
+        for vertek in vertrekXML["ActueleVertrekTijden"]["VertrekkendeTrein"]:
+            if "VertrekVertragingTekst" not in vertek:
+                nuttige_info += "The train to {} leaves at {} on platform {}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekSpoor"]["#text"])
+            else:
+                nuttige_info += "The train to {} leaves at {} {} on platform {}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"])
     return nuttige_info
 
 #Het ingoeverde station uit station_Kiezen wordt opgeslagen als variable

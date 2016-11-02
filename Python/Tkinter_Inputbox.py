@@ -7,12 +7,16 @@ def taalNL():
     knopsluiten["text"] = "Venster Sluiten"
     global taal
     taal = "NL"
+    reisinformatie.delete(1.0, END)
+    station_invullen()
 
 def taalENG():
     koptekst["text"] = "Current Station"
     knopsluiten["text"] = "Close Window"
     global taal
     taal = "ENG"
+    reisinformatie.delete(1.0, END)
+    station_invullen()
 
 def station_invullen():
     station = entry.get()
