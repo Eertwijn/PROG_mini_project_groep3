@@ -3,8 +3,8 @@ import xmltodict
 
 
 def stationsLijst():
-    """Deze functie doet een request naar de ns api. Het response van de api wordt geparst.
-    Daarna worden de stations opgeslagen in een lijst. Deze lijst wordt meegegeven aan station_Kiezen()"""
+    """Deze functie doet een request naar de ns api. Het response van de api wordt geparst,
+    daarna worden de stations opgeslagen in een lijst."""
 
     # Inlog gegevens als variable
     inlogegevens = ('sam.zandee@gmail.com', 'PR15gnkYhlxUuWrjXFnZ_yBHswBfR-clw1oYMkbMW7eeeNLD0sGd5A')
@@ -12,7 +12,7 @@ def stationsLijst():
     stationsVanAPI = 'http://webservices.ns.nl/ns-api-stations-v2'
     responseStationLijst = requests.get(stationsVanAPI, auth=inlogegevens)
     # parsen van de tekst naar een variable
-    stationsNamen = xmltodict.parse((responseStationLijst.text))
+    stationsNamen = xmltodict.parse(responseStationLijst.text)
     checkWelkStation = stationsNamen['Stations']['Station']
     # lijst aanmaken waar de stations in komen
     lijstVanStations = []
@@ -20,39 +20,20 @@ def stationsLijst():
         # Korte namen van de stations toevoegen
         lijstVanStations.append(station['Namen']['Kort'])
 
-    return(lijstVanStations)
-
-
-def station_Kiezen(lijstVanStations):
-    """Hier wordt aan de gebruiker gevraagt waar hij/zij is. Daarna wordt gekeken het station bestaat.
-    Als dat het geval is wordt het station opgeslagen. Is dit niet het geval, dan wordt er opnieuw gevraagt
-    of op welk station ze zijn."""
-    # Er wordt gevraagt of utrecht het huidige station is
-    invoer_station = input("Is dit uw huidige station(Utrecht Centraal)? (Ja/Nee)")
-
-    station = ""
-    # als Utrecht niet het huidige station is wordt er gevraagt waar de persoon zich bevindt
-    if invoer_station == "Nee":
-        while station not in lijstVanStations:
-            station = input("Geef het station waar u zich bevindt: ")
-    else:
-        station = "Utrecht"
-    # Het ingevoerde station wordt geprint en teruggegeven.
-    print("U heeft",station,"aangegeven.")
-
-    return station
+    return lijstVanStations
 
 
 def tijden_ophalen(station, taal):
-    """Deze functie wordt gebruikt om de de vertrektijden van het ingevoerde station op te vragen
-    van de ns api. Deze informatie wordt vervolgens weer teruggegeven"""
+    """Deze functie wordt gebruikt om de vertrektijden van het ingevoerde station op te vragen
+    met de ns api. Deze informatie wordt vervolgens weer teruggegeven
+    """
 
     # Inlogegevens
     authdetails = ('sam.zandee@gmail.com', 'PR15gnkYhlxUuWrjXFnZ_yBHswBfR-clw1oYMkbMW7eeeNLD0sGd5A')
     # De url die nodig is wordt bepaald door het station er aan te plakken
     apiurl = "http://webservices.ns.nl/ns-api-avt?station=" + station
 
-    # de reactie wordt opgevraagt
+    # De reactie wordt opgevraagt
     response = requests.get(apiurl, auth=authdetails)
     # De reactie wordt geparst
     vertrekXML = xmltodict.parse(response.text)
