@@ -32,7 +32,7 @@ root.geometry("1500x1000")
 
 # Achtergrond kleur
 achterkant = Label(master=root,
-                   bg="#FFCD4C")
+                   bg='#%02x%02x%02x' % (255, 205, 76))
 achterkant.pack(fill=BOTH, expand=True)
 
 # Tekst boven plaatje
