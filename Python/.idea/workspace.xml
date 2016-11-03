@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10e741cd-014d-4bc5-920f-703e4a224959" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReistijdenUtrechtCentraal.py" afterPath="$PROJECT_DIR$/ReistijdenUtrechtCentraal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tkinter.py" afterPath="$PROJECT_DIR$/Tkinter.py" />
     </list>
     <ignored path="Python.iws" />
@@ -29,8 +29,8 @@
       <file leaf-file-name="Tkinter.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tkinter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="55" />
+            <state relative-caret-position="742">
+              <caret line="110" column="42" selection-start-line="110" selection-start-column="42" selection-end-line="110" selection-end-column="42" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -101,8 +101,8 @@
         <option value="$PROJECT_DIR$/Tkinter_Inputbox.py" />
         <option value="$PROJECT_DIR$/AnderStation.py" />
         <option value="$PROJECT_DIR$/MasterApp.py" />
-        <option value="$PROJECT_DIR$/Tkinter.py" />
         <option value="$PROJECT_DIR$/ReistijdenUtrechtCentraal.py" />
+        <option value="$PROJECT_DIR$/Tkinter.py" />
       </list>
     </option>
   </component>
@@ -700,8 +700,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tkinter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="55" />
+        <state relative-caret-position="742">
+          <caret line="110" column="42" selection-start-line="110" selection-start-column="42" selection-end-line="110" selection-end-column="42" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
