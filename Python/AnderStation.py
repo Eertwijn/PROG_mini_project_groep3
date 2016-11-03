@@ -58,6 +58,7 @@ def venster_openen(meegeeftaal):
     root.title("NS actuele vertrektijden")
     root.geometry("1500x1000")
 
+    #Achtergrond kleur
     achterkant = Label(master=root,
                        background="#FFCD4C")
     achterkant.pack(fill=BOTH, expand=True)
@@ -109,7 +110,7 @@ def venster_openen(meegeeftaal):
                   height=100)
     balk.pack(side=BOTTOM, fill=X)
 
-    # knoppen voor de taal
+    # knoppen voor de talen
     # Taal knop Nederlands
     vlagNL = PhotoImage(file='vlagNL.gif').subsample(4)
     knopNL = Button(master=balk,
