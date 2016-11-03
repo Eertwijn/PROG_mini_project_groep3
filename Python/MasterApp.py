@@ -18,7 +18,10 @@ def stationsLijst():
     lijstVanStations = []
     for station in checkWelkStation:
         # Korte namen van de stations toevoegen
+        lijstVanStations.append(station['Code'])
         lijstVanStations.append(station['Namen']['Kort'])
+        lijstVanStations.append(station['Namen']['Middel'])
+        lijstVanStations.append(station['Namen']['Lang'])
 
     return lijstVanStations
 
