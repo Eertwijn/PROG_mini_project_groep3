@@ -23,7 +23,6 @@ def taalENG():
     taal = "ENG"
 
 
-global taal
 taal = "NL"
 
 # Hoofdscherm
