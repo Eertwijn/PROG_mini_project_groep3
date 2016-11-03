@@ -21,7 +21,7 @@ def taalENG():
     """
     koptekst["text"] = "Please enter your station here:"
     knopsluiten["text"] = "Close Window"
-    invulknop["text"] = "Typ"
+    invulknop["text"] = "Enter"
     global taal
     taal = "ENG"
     station_invullen()
