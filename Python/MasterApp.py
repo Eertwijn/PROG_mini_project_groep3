@@ -62,13 +62,13 @@ def tijden_ophalen(station, taal):
     if taal == "NL":
         for vertek in vertrekXML["ActueleVertrekTijden"]["VertrekkendeTrein"]:
             if "VertrekVertragingTekst" not in vertek:
-                nuttige_info += "De trein naar {} vertrekt om {} op spoor {}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekSpoor"]["#text"])
+                nuttige_info += "De trein naar {:<34} vertrekt om {:>20} op spoor {:>20}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekSpoor"]["#text"])
             else:
-                nuttige_info += "De trein naar {} vertrekt om {} {} op spoor {}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"])
+                nuttige_info += "De trein naar {:<34} vertrekt om {:>20} {} op spoor {:>20}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"])
     else:
         for vertek in vertrekXML["ActueleVertrekTijden"]["VertrekkendeTrein"]:
             if "VertrekVertragingTekst" not in vertek:
-                nuttige_info += "The train to {} departs at {} on platform {}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekSpoor"]["#text"])
+                nuttige_info += "The train to {:<34} departs at {:>20} on platform {:>20}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekSpoor"]["#text"])
             else:
-                nuttige_info += "The train to {} departs at {} {} on platform {}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"])
+                nuttige_info += "The train to {:<34} departs at {:>20} {} on platform {:>20}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"])
     return nuttige_info
