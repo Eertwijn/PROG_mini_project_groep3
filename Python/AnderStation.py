@@ -27,7 +27,7 @@ def taalENG():
     station_invullen()
 
 
-def station_invullen():
+def station_invullen(event=None):
     """
     Deze functie kijkt eerst of er iets ingevuld is, is dat het geval dan kijkt de functie of het een bestaand station is en print daarvan de info uit.
     Als het station niet bestaat geeft de functie een foutmelding aan de gebruiker.
@@ -57,6 +57,7 @@ def venster_openen(meegeeftaal):
     root = Toplevel()
     root.title("NS actuele vertrektijden")
     root.geometry("1500x1000")
+    root.bind("<Return>", station_invullen)
 
     #Achtergrond kleur
     achterkant = Label(master=root,
