@@ -51,5 +51,5 @@ def tijden_ophalen(station, taal):
             if "VertrekVertragingTekst" not in vertek:
                 nuttige_info += "The train to {:<34} departs at {:>20} on platform {:>18}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekSpoor"]["#text"])
             else:
-                nuttige_info += "The train to {:<34} departs at {:>20} {} on platform {:>18}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"])
+                nuttige_info += "The train to {:<34} departs at {:>20} {} on platform {}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"])
     return nuttige_info
