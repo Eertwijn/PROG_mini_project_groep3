@@ -2,24 +2,24 @@ from tkinter import *
 import MasterApp
 
 
-#Functies voor het wijzigen van de taal
+# Functies voor het wijzigen van de taal
 def taalNL():
-    #koptekst["text"] = "Huidig Station"
     knopsluiten["text"] = "Venster Sluiten"
     global taal
     taal = "NL"
     reisinformatie.delete(1.0, END)
     reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
 
+
 def taalENG():
-    #koptekst["text"] = "Current Station"
     knopsluiten["text"] = "Close Window"
     global taal
     taal = "ENG"
     reisinformatie.delete(1.0, END)
     reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
 
-#Functie voor het openen van het nieuwe venster
+
+# Functie voor het openen van het nieuwe venster
 def venster_openen(meegeeftaal):
     root = Toplevel()
     root.title("NS actuele vertrektijden")
@@ -32,7 +32,7 @@ def venster_openen(meegeeftaal):
                        background="#FFC846")
     achterkant.pack(fill=BOTH, expand=True)
 
-    #Tekst boven
+    # Tekst boven
     global koptekst
     koptekst = Label(master=achterkant,
                   font = ('Raleway', 30),
@@ -42,7 +42,7 @@ def venster_openen(meegeeftaal):
                   )
     koptekst.pack()
 
-    #Tekst box aanmaken
+    # Tekst box aanmaken
     global reisinformatie
     reisinformatie = Text(master=achterkant,
                   font = ('Raleway', 16),
@@ -53,14 +53,14 @@ def venster_openen(meegeeftaal):
     reisinformatie.pack()
     reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
 
-    #Onderste blauwe balk
+    # Onderste blauwe balk
     balk = Canvas(master=achterkant,
-                    bg= 'blue',
+                    bg= '#053593',
                     height=100)
     balk.pack(side=BOTTOM, fill=X)
 
-    #knoppen voor de taal
-    #Taal knop 1
+    # knoppen voor de taal
+    # Taal knop 1
     vlagNL = PhotoImage(file='vlagNL.gif').subsample(4)
     knop1 = Button(master=balk,
                    image=vlagNL,
@@ -68,7 +68,7 @@ def venster_openen(meegeeftaal):
                    )
     knop1.pack(side=LEFT, pady=10, padx=10)
 
-    #Taal knop 2
+    # Taal knop 2
     vlagENG= PhotoImage(file='vlagENG.gif').subsample(4)
     knop2 = Button(master=balk,
                    image=vlagENG,
@@ -76,12 +76,12 @@ def venster_openen(meegeeftaal):
                    )
     knop2.pack(side=LEFT, pady=10, padx=10)
 
-    #Knop sluiten
+    # Knop sluiten
     global knopsluiten
     knopsluiten = Button(master=balk,
                          text= "Venster sluiten",
                          font= ('Raleway', 12),
-                         bg= 'blue',
+                         bg= '#053593',
                          fg= 'white',
                          command=root.destroy)
     knopsluiten.pack(side=RIGHT, pady=10, padx=10)
