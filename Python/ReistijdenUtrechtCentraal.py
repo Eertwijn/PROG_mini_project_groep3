@@ -33,7 +33,7 @@ def venster_openen(meegeeftaal):
     global taal
     taal = meegeeftaal
 
-    # Achterkant
+    # Achtergrond kleur
     achterkant = Label(master=root,
                        bg='#%02x%02x%02x' % (255, 205, 76))
     achterkant.pack(fill=BOTH, expand=True)
@@ -64,15 +64,15 @@ def venster_openen(meegeeftaal):
                   height=100)
     balk.pack(side=BOTTOM, fill=X)
 
-    # knoppen voor de taal
-    # Taal knop 1
+    # knoppen voor de talen
+    # Taal knop Nederlands
     vlagNL = PhotoImage(file='vlagNL.gif').subsample(4)
     knopNL = Button(master=balk,
                    image=vlagNL,
                    command=taalNL)
     knopNL.pack(side=LEFT, pady=10, padx=10)
 
-    # Taal knop 2
+    # Taal knop Engels
     vlagENG = PhotoImage(file='vlagENG.gif').subsample(4)
     knopENG = Button(master=balk,
                    image=vlagENG,

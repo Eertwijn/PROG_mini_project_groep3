@@ -59,15 +59,15 @@ balk = Canvas(master=achterkant,
               height=100)
 balk.pack(side=BOTTOM, fill=X)
 
-# knoppen voor de taal
-# Taal knop 1
+# knoppen voor de talen
+# Taal knop Nederlands
 vlagNL = PhotoImage(file='vlagNL.gif').subsample(4)
 knopNL = Button(master=balk,
                 image=vlagNL,
                 command=taalNL)
 knopNL.pack(side=LEFT, pady=10, padx=10)
 
-# Taal knop 2
+# Taal knop Engels
 vlagENG = PhotoImage(file='vlagENG.gif').subsample(4)
 knopENG = Button(master=balk,
                  image=vlagENG,
@@ -83,7 +83,7 @@ knopsluiten = Button(master=balk,
                      command=root.destroy)
 knopsluiten.pack(side=RIGHT, pady=10, padx=10)
 
-# Een Frame waar de knoppen Hier en Anders in staan
+# Een frame waar de knoppen "hier" en "anders" in staan
 box = Frame(master=achterkant,
             bg='#FFCD4C')
 box.pack()

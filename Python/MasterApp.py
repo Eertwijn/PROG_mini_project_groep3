@@ -3,8 +3,8 @@ import xmltodict
 
 
 def stationsLijst():
-    """Deze functie doet een request naar de ns api. Het response van de api wordt geparst.
-    Daarna worden de stations opgeslagen in een lijst. Deze lijst wordt meegegeven aan station_Kiezen()"""
+    """Deze functie doet een request naar de ns api. Het response van de api wordt geparst,
+    daarna worden de stations opgeslagen in een lijst."""
 
     # Inlog gegevens als variable
     inlogegevens = ('sam.zandee@gmail.com', 'PR15gnkYhlxUuWrjXFnZ_yBHswBfR-clw1oYMkbMW7eeeNLD0sGd5A')
@@ -24,15 +24,16 @@ def stationsLijst():
 
 
 def tijden_ophalen(station, taal):
-    """Deze functie wordt gebruikt om de de vertrektijden van het ingevoerde station op te vragen
-    van de ns api. Deze informatie wordt vervolgens weer teruggegeven"""
+    """Deze functie wordt gebruikt om de vertrektijden van het ingevoerde station op te vragen
+    met de ns api. Deze informatie wordt vervolgens weer teruggegeven
+    """
 
     # Inlogegevens
     authdetails = ('sam.zandee@gmail.com', 'PR15gnkYhlxUuWrjXFnZ_yBHswBfR-clw1oYMkbMW7eeeNLD0sGd5A')
     # De url die nodig is wordt bepaald door het station er aan te plakken
     apiurl = "http://webservices.ns.nl/ns-api-avt?station=" + station
 
-    # de reactie wordt opgevraagt
+    # De reactie wordt opgevraagt
     response = requests.get(apiurl, auth=authdetails)
     # De reactie wordt geparst
     vertrekXML = xmltodict.parse(response.text)
