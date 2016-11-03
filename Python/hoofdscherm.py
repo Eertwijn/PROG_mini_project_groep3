@@ -32,14 +32,14 @@ root.geometry("1500x1000")
 
 # Achtergrond kleur
 achterkant = Label(master=root,
-                   background="#FFCD4C")
+                   bg="#FFCD4C")
 achterkant.pack(fill=BOTH, expand=True)
 
 # Tekst boven plaatje
 koptekst = Label(master=achterkant,
                  font=('Raleway', 30),
                  text='Actuele reistijden',
-                 background='#FFCD4C',
+                 bg='#%02x%02x%02x' % (255, 205, 76),
                  height=3)
 koptekst.pack()
 
@@ -54,7 +54,7 @@ plaatje.pack()
 
 # Onderste blauwe balk
 balk = Canvas(master=achterkant,
-              bg='#053593',
+              bg='#%02x%02x%02x' % (5, 53, 147),
               height=100)
 balk.pack(side=BOTTOM, fill=X)
 
@@ -77,21 +77,21 @@ knopENG.pack(side=LEFT, pady=10, padx=10)
 knopsluiten = Button(master=balk,
                      text="Programma sluiten",
                      font=('Raleway', 12),
-                     bg='#053593',
+                     bg='#%02x%02x%02x' % (5, 53, 147),
                      fg='white',
                      command=root.destroy)
 knopsluiten.pack(side=RIGHT, pady=10, padx=10)
 
 # Een frame waar de knoppen "hier" en "anders" in staan
 box = Frame(master=achterkant,
-            bg='#FFCD4C')
+            bg='#%02x%02x%02x' % (255, 205, 76))
 box.pack()
 
 # Knop eigenstation
 knopHier = Button(master=box,
                   text="Huidig Station",
                   font=('Raleway', 15),
-                  bg='#053593',
+                  bg='#%02x%02x%02x' % (5, 53, 147),
                   fg='white',
                   height=3,
                   width=15,
@@ -102,7 +102,7 @@ knopHier.pack(side=LEFT, padx=20, pady=30)
 knopAnders = Button(master=box,
                     text="Ander Station",
                     font=('Raleway', 15),
-                    bg='#053593',
+                    bg='#%02x%02x%02x' % (5, 53, 147),
                     fg='white',
                     height=3,
                     width=15,
