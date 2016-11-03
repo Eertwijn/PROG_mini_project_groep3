@@ -3,7 +3,7 @@ import MasterApp
 import requests
 import xmltodict
 
-#Functies voor het wijzigen van de taal
+#Functies voor het wijzigen van de taal.
 def taalNL():
     #koptekst["text"] = "Huidig Station"
     knopsluiten["text"] = "Venster Sluiten"
