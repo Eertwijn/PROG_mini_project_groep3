@@ -1,6 +1,7 @@
 import requests
 import xmltodict
 
+
 def stationsLijst():
     """Deze functie doet een request naar de ns api. Het response van de api wordt geparst.
     Daarna worden de stations opgeslagen in een lijst. Deze lijst wordt meegegeven aan station_Kiezen()"""
@@ -20,9 +21,6 @@ def stationsLijst():
         lijstVanStations.append(station['Namen']['Kort'])
 
     return(lijstVanStations)
-# De uitkomst van stationsLijst() wordt opgeslagen als variable
-lijstVanStations = stationsLijst()
-
 
 
 def station_Kiezen(lijstVanStations):
@@ -74,8 +72,3 @@ def tijden_ophalen(station, taal):
             else:
                 nuttige_info += "The train to {} departs at {} {} on platform {}.\n".format(vertek["EindBestemming"], vertek["VertrekTijd"][11:16], vertek["VertrekVertragingTekst"], vertek["VertrekSpoor"]["#text"])
     return nuttige_info
-
-# Het ingoeverde station uit station_Kiezen wordt opgeslagen als variable
-# station = station_Kiezen(lijstVanStations)
-# Van Het ingevoerde station worden de tijden opgehaald.
-# tijden_ophalen(station)
