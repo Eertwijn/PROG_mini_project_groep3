@@ -12,7 +12,7 @@ def stationsLijst():
     stationsVanAPI = 'http://webservices.ns.nl/ns-api-stations-v2'
     responseStationLijst = requests.get(stationsVanAPI, auth=inlogegevens)
     # parsen van de tekst naar een variable
-    stationsNamen = xmltodict.parse((responseStationLijst.text))
+    stationsNamen = xmltodict.parse(responseStationLijst.text)
     checkWelkStation = stationsNamen['Stations']['Station']
     # lijst aanmaken waar de stations in komen
     lijstVanStations = []
@@ -20,7 +20,7 @@ def stationsLijst():
         # Korte namen van de stations toevoegen
         lijstVanStations.append(station['Namen']['Kort'])
 
-    return(lijstVanStations)
+    return lijstVanStations
 
 
 def tijden_ophalen(station, taal):

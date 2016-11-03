@@ -12,7 +12,6 @@ def taalNL():
     invulknop["text"] = "invullen"
     global taal
     taal = "NL"
-    #reisinformatie.delete(1.0, END)
     station_invullen()
 
 
@@ -25,7 +24,6 @@ def taalENG():
     invulknop["text"] = "Typ"
     global taal
     taal = "ENG"
-    #reisinformatie.delete(1.0, END)
     station_invullen()
 
 
@@ -43,7 +41,7 @@ def station_invullen():
             reisinformatie.insert(END, MasterApp.tijden_ophalen(station, taal))
             reisinformatie.config(state=DISABLED)
         else:
-            messagebox.showerror("Foutmelding","Dat station kennen wij niet")
+            messagebox.showerror("Foutmelding", "Dat station kennen wij niet")
 
 
 def venster_openen(meegeeftaal):
@@ -73,7 +71,7 @@ def venster_openen(meegeeftaal):
                      height=3)
     koptekst.pack()
 
-    # Frame om invulding en de nkop mooi naast elkaar te krijgen
+    # Frame om invulding en de knop mooi naast elkaar te krijgen
     box1 = Frame(master=achterkant,
                  bg='#FFCD4C')
     box1.pack()

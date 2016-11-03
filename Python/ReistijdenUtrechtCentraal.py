@@ -24,7 +24,6 @@ def taalENG():
     reisinformatie.config(state=DISABLED)
 
 
-
 def venster_openen(meegeeftaal):
     # Functie voor het openen van het nieuwe venster
     root = Toplevel()
@@ -34,7 +33,7 @@ def venster_openen(meegeeftaal):
     global taal
     taal = meegeeftaal
 
-    #Achterkant
+    # Achterkant
     achterkant = Label(master=root,
                        background="#FFC846")
     achterkant.pack(fill=BOTH, expand=True)
