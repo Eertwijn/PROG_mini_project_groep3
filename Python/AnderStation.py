@@ -22,15 +22,18 @@ def taalENG():
 
 def station_invullen():
     station = entry.get()
-    if station in MasterApp.stationsLijst():
-        reisinformatie.insert(END, MasterApp.tijden_ophalen(station, taal))
-    else:
-        messagebox.showerror("Foutmelding","Dat station kennen wij niet")
+    if station != "":
+        if station in MasterApp.stationsLijst():
+            reisinformatie.delete(1.0, END)
+            reisinformatie.insert(END, MasterApp.tijden_ophalen(station, taal))
+        else:
+            messagebox.showerror("Foutmelding","Dat station kennen wij niet")
 
 
 def venster_openen(meegeeftaal):
     global taal
     taal = meegeeftaal
+
     root = Toplevel()
     root.title("NS actuele vertrektijden")
     root.geometry("1500x1000")
@@ -117,5 +120,8 @@ def venster_openen(meegeeftaal):
                          fg= 'white',
                          command=root.destroy)
     knopsluiten.pack(side=RIGHT, pady=10, padx=10)
+
+    if taal != "NL":
+        taalENG()
 
     root.mainloop()
