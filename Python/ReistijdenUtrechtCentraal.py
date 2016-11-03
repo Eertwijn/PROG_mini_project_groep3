@@ -7,8 +7,10 @@ def taalNL():
     knopsluiten["text"] = "Venster Sluiten"
     global taal
     taal = "NL"
+    reisinformatie.config(state=NORMAL)
     reisinformatie.delete(1.0, END)
     reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
+    reisinformatie.config(state=DISABLED)
 
 
 def taalENG():
@@ -16,8 +18,10 @@ def taalENG():
     knopsluiten["text"] = "Close Window"
     global taal
     taal = "ENG"
+    reisinformatie.config(state=NORMAL)
     reisinformatie.delete(1.0, END)
     reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
+    reisinformatie.config(state=DISABLED)
 
 
 

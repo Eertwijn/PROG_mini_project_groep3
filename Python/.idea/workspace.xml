@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10e741cd-014d-4bc5-920f-703e4a224959" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnderStation.py" afterPath="$PROJECT_DIR$/AnderStation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReistijdenUtrechtCentraal.py" afterPath="$PROJECT_DIR$/ReistijdenUtrechtCentraal.py" />
     </list>
     <ignored path="Python.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,7 +25,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="hoofdscherm.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="hoofdscherm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hoofdscherm.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="222">
@@ -37,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReistijdenUtrechtCentraal.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ReistijdenUtrechtCentraal.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ReistijdenUtrechtCentraal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="982">
-              <caret line="84" column="28" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="28" />
+            <state relative-caret-position="460">
+              <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -52,8 +52,8 @@
       <file leaf-file-name="AnderStation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AnderStation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+            <state relative-caret-position="442">
+              <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="47" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -99,9 +99,9 @@
         <option value="$PROJECT_DIR$/Test.py" />
         <option value="$PROJECT_DIR$/Tkinter_Inputbox.py" />
         <option value="$PROJECT_DIR$/Tkinter.py" />
-        <option value="$PROJECT_DIR$/ReistijdenUtrechtCentraal.py" />
         <option value="$PROJECT_DIR$/MasterApp.py" />
         <option value="$PROJECT_DIR$/AnderStation.py" />
+        <option value="$PROJECT_DIR$/ReistijdenUtrechtCentraal.py" />
       </list>
     </option>
   </component>
@@ -677,10 +677,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ReistijdenUtrechtCentraal.py">
+    <entry file="file://$PROJECT_DIR$/hoofdscherm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="982">
-          <caret line="84" column="28" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="28" />
+        <state relative-caret-position="222">
+          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
@@ -689,18 +689,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AnderStation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        <state relative-caret-position="442">
+          <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="47" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hoofdscherm.py">
+    <entry file="file://$PROJECT_DIR$/ReistijdenUtrechtCentraal.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+        <state relative-caret-position="460">
+          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
