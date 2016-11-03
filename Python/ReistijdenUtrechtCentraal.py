@@ -2,8 +2,8 @@ from tkinter import *
 import MasterApp
 
 
-# Functies voor het wijzigen van de taal
 def taalNL():
+    # Functie om de taal naar het Nederlands aan te passen.
     knopsluiten["text"] = "Venster Sluiten"
     global taal
     taal = "NL"
@@ -12,6 +12,7 @@ def taalNL():
 
 
 def taalENG():
+    # Functie om de taal naar het Engels aan te passen.
     knopsluiten["text"] = "Close Window"
     global taal
     taal = "ENG"
@@ -19,8 +20,9 @@ def taalENG():
     reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
 
 
-# Functie voor het openen van het nieuwe venster
+
 def venster_openen(meegeeftaal):
+    # Functie voor het openen van het nieuwe venster
     root = Toplevel()
     root.title("NS actuele vertrektijden")
     root.geometry("1500x1000")

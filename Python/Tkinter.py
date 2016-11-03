@@ -2,8 +2,9 @@ from tkinter import *
 import AnderStation
 import ReistijdenUtrechtCentraal
 
-# Functie om de taal naar het Nederlands aan te passen.
+
 def taalNL():
+    # Functie om de taal naar het Nederlands aan te passen.
     koptekst["text"] = "Actuele reistijden"
     knopHier["text"] = "Huidig Station"
     knopAnders["text"] = "Ander Station"
@@ -12,8 +13,8 @@ def taalNL():
     taal = "NL"
 
 
-# Functie om de taal naar het Engels aan te passen.
 def taalENG():
+    # Functie om de taal naar het Engels aan te passen.
     koptekst["text"] = "Actual traveltimes"
     knopHier["text"] = "Current Station"
     knopAnders["text"] = "Other Station"
@@ -54,7 +55,7 @@ plaatje = Label(master=achterkant,
                 height=400)
 plaatje.pack()
 
-#Onderste blauwe balk
+# Onderste blauwe balk
 balk = Canvas(master=achterkant,
                 bg= '#053593',
                 height=100)
