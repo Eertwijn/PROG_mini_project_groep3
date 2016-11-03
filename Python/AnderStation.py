@@ -59,7 +59,7 @@ def venster_openen(meegeeftaal):
     root.geometry("1500x1000")
 
     achterkant = Label(master=root,
-                       background="#FFCD4C")
+                       bg='#%02x%02x%02x' % (255, 205, 76))
     achterkant.pack(fill=BOTH, expand=True)
 
     # Tekst boven
@@ -67,13 +67,13 @@ def venster_openen(meegeeftaal):
     koptekst = Label(master=achterkant,
                      font=('Raleway', 30),
                      text='Voer hier uw gewenste station in:',
-                     background='#FFCD4C',
+                     bg='#%02x%02x%02x' % (255, 205, 76),
                      height=3)
     koptekst.pack()
 
     # Frame om invulding en de knop mooi naast elkaar te krijgen
     box1 = Frame(master=achterkant,
-                 bg='#FFCD4C')
+                 bg='#%02x%02x%02x' % (255, 205, 76))
     box1.pack()
 
     # Invoer balk
@@ -88,7 +88,7 @@ def venster_openen(meegeeftaal):
     invulknop = Button(master=box1,
                        text="Invullen",
                        font=('Raleway', 15),
-                       bg='#053593',
+                       bg='#%02x%02x%02x' % (5, 53, 147),
                        fg='white',
                        width=15,
                        command=station_invullen)
@@ -97,7 +97,7 @@ def venster_openen(meegeeftaal):
     global reisinformatie
     reisinformatie = Text(master=achterkant,
                           font=('Raleway', 16),
-                          background='#FFC846',
+                          bg='#%02x%02x%02x' % (255, 205, 76),
                           height=25,
                           width=150)
     reisinformatie.pack()
@@ -105,7 +105,7 @@ def venster_openen(meegeeftaal):
 
     # Onderste blauwe balk
     balk = Canvas(master=achterkant,
-                  bg='#053593',
+                  bg='#%02x%02x%02x' % (5, 53, 147),
                   height=100)
     balk.pack(side=BOTTOM, fill=X)
 
@@ -129,7 +129,7 @@ def venster_openen(meegeeftaal):
     knopsluiten = Button(master=balk,
                          text="Venster sluiten",
                          font=('Raleway', 12),
-                         bg='#053593',
+                         bg='#%02x%02x%02x' % (5, 53, 147),
                          fg='white',
                          command=root.destroy)
     knopsluiten.pack(side=RIGHT, pady=10, padx=10)
