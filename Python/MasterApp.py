@@ -23,26 +23,6 @@ def stationsLijst():
     return(lijstVanStations)
 
 
-def station_Kiezen(lijstVanStations):
-    """Hier wordt aan de gebruiker gevraagt waar hij/zij is. Daarna wordt gekeken het station bestaat.
-    Als dat het geval is wordt het station opgeslagen. Is dit niet het geval, dan wordt er opnieuw gevraagt
-    of op welk station ze zijn."""
-    # Er wordt gevraagt of utrecht het huidige station is
-    invoer_station = input("Is dit uw huidige station(Utrecht Centraal)? (Ja/Nee)")
-
-    station = ""
-    # als Utrecht niet het huidige station is wordt er gevraagt waar de persoon zich bevindt
-    if invoer_station == "Nee":
-        while station not in lijstVanStations:
-            station = input("Geef het station waar u zich bevindt: ")
-    else:
-        station = "Utrecht"
-    # Het ingevoerde station wordt geprint en teruggegeven.
-    print("U heeft",station,"aangegeven.")
-
-    return station
-
-
 def tijden_ophalen(station, taal):
     """Deze functie wordt gebruikt om de de vertrektijden van het ingevoerde station op te vragen
     van de ns api. Deze informatie wordt vervolgens weer teruggegeven"""

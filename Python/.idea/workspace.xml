@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="10e741cd-014d-4bc5-920f-703e4a224959" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tkinter.py" afterPath="$PROJECT_DIR$/Tkinter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnderStation.py" afterPath="$PROJECT_DIR$/AnderStation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MasterApp.py" afterPath="$PROJECT_DIR$/MasterApp.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReistijdenUtrechtCentraal.py" afterPath="$PROJECT_DIR$/ReistijdenUtrechtCentraal.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Tkinter.py" afterPath="$PROJECT_DIR$/hoofdscherm.py" />
     </list>
     <ignored path="Python.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,8 +29,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="Tkinter.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Tkinter.py">
+      <file leaf-file-name="hoofdscherm.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hoofdscherm.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="742">
               <caret line="110" column="42" selection-start-line="110" selection-start-column="42" selection-end-line="110" selection-end-column="42" />
@@ -41,8 +44,8 @@
       <file leaf-file-name="ReistijdenUtrechtCentraal.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ReistijdenUtrechtCentraal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+            <state relative-caret-position="642">
+              <caret line="83" column="28" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -53,8 +56,8 @@
       <file leaf-file-name="AnderStation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AnderStation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-20">
-              <caret line="48" column="127" selection-start-line="48" selection-start-column="127" selection-end-line="48" selection-end-column="127" />
+            <state relative-caret-position="642">
+              <caret line="131" column="28" selection-start-line="131" selection-start-column="28" selection-end-line="131" selection-end-column="28" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -62,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MasterApp.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MasterApp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MasterApp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
+            <state relative-caret-position="168">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -99,10 +102,10 @@
         <option value="$PROJECT_DIR$/NewWindow.py" />
         <option value="$PROJECT_DIR$/Test.py" />
         <option value="$PROJECT_DIR$/Tkinter_Inputbox.py" />
-        <option value="$PROJECT_DIR$/AnderStation.py" />
-        <option value="$PROJECT_DIR$/MasterApp.py" />
-        <option value="$PROJECT_DIR$/ReistijdenUtrechtCentraal.py" />
         <option value="$PROJECT_DIR$/Tkinter.py" />
+        <option value="$PROJECT_DIR$/ReistijdenUtrechtCentraal.py" />
+        <option value="$PROJECT_DIR$/MasterApp.py" />
+        <option value="$PROJECT_DIR$/AnderStation.py" />
       </list>
     </option>
   </component>
@@ -415,7 +418,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Python" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tkinter.py" />
+      <option name="SCRIPT_NAME" value="D:\Documents\Dropbox\school\PROG\PROG_mini_project_groep3\Python\hoofdscherm.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -549,7 +552,7 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Downloads/Telefoon.py" />
-    <entry file="file://$PROJECT_DIR$/Tkinter.py">
+    <entry file="file://$PROJECT_DIR$/hoofdscherm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1452">
           <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
@@ -587,7 +590,7 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Downloads/Telefoon.py" />
-    <entry file="file://$PROJECT_DIR$/Tkinter.py">
+    <entry file="file://$PROJECT_DIR$/hoofdscherm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -602,7 +605,7 @@
     <entry file="file://$USER_HOME$/Downloads/VoorbeeldCanvas.py" />
     <entry file="file://$USER_HOME$/Downloads/MijnEersteScherm.py" />
     <entry file="file://$USER_HOME$/Downloads/VoorbereidenTonenPlaatje.py" />
-    <entry file="file://$PROJECT_DIR$/Tkinter.py">
+    <entry file="file://$PROJECT_DIR$/hoofdscherm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -617,7 +620,7 @@
     <entry file="file://$USER_HOME$/Downloads/VoorbeeldCanvas.py" />
     <entry file="file://$USER_HOME$/Downloads/MijnEersteScherm.py" />
     <entry file="file://$USER_HOME$/Downloads/VoorbereidenTonenPlaatje.py" />
-    <entry file="file://$PROJECT_DIR$/Tkinter.py">
+    <entry file="file://$PROJECT_DIR$/hoofdscherm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -629,7 +632,7 @@
     </entry>
     <entry file="file://$USER_HOME$/Downloads/EersteScherm.py" />
     <entry file="file://$USER_HOME$/Downloads/VoorbereidenTonenPlaatje.py" />
-    <entry file="file://$PROJECT_DIR$/Tkinter.py">
+    <entry file="file://$PROJECT_DIR$/hoofdscherm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -668,20 +671,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Test.py" />
-    <entry file="file://$PROJECT_DIR$/MasterApp.py">
+    <entry file="file://$PROJECT_DIR$/hoofdscherm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AnderStation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret line="48" column="127" selection-start-line="48" selection-start-column="127" selection-end-line="48" selection-end-column="127" />
+        <state relative-caret-position="742">
+          <caret line="110" column="42" selection-start-line="110" selection-start-column="42" selection-end-line="110" selection-end-column="42" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
@@ -690,20 +683,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ReistijdenUtrechtCentraal.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+        <state relative-caret-position="642">
+          <caret line="83" column="28" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tkinter.py">
+    <entry file="file://$PROJECT_DIR$/AnderStation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="742">
-          <caret line="110" column="42" selection-start-line="110" selection-start-column="42" selection-end-line="110" selection-end-column="42" />
+        <state relative-caret-position="642">
+          <caret line="131" column="28" selection-start-line="131" selection-start-column="28" selection-end-line="131" selection-end-column="28" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MasterApp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
