@@ -3,29 +3,37 @@ from tkinter import messagebox
 import MasterApp
 
 def taalNL():
-    koptekst["text"] = "Huidig Station"
+    koptekst["text"] = "Voer hier uw gewenste station in:"
     knopsluiten["text"] = "Venster Sluiten"
+    invulknop["text"] = "invullen"
     global taal
     taal = "NL"
+    reisinformatie.delete(1.0, END)
+    station_invullen()
 
 def taalENG():
-    koptekst["text"] = "Current Station"
+    koptekst["text"] = "Please enter your station here:"
     knopsluiten["text"] = "Close Window"
+    invulknop["text"] = "Typ"
     global taal
     taal = "ENG"
+    reisinformatie.delete(1.0, END)
+    station_invullen()
 
 def station_invullen():
     station = entry.get()
-    print(station)
-    if station in MasterApp.stationsLijst():
-        reisinformatie.insert(END, MasterApp.tijden_ophalen(station, taal))
-    else:
-        messagebox.showerror("Foutmelding","Dat station kennen wij niet")
+    if station != "":
+        if station in MasterApp.stationsLijst():
+            reisinformatie.delete(1.0, END)
+            reisinformatie.insert(END, MasterApp.tijden_ophalen(station, taal))
+        else:
+            messagebox.showerror("Foutmelding","Dat station kennen wij niet")
 
 
-def venster_openen():
+def venster_openen(meegeeftaal):
     global taal
-    taal = "NL"
+    taal = meegeeftaal
+
     root = Toplevel()
     root.title("NS actuele vertrektijden")
     root.geometry("1500x1000")
@@ -39,18 +47,34 @@ def venster_openen():
     global koptekst
     koptekst = Label(master=achterkant,
                   font = ('Raleway', 30),
-                  text='Huidig Station',
+                  text='Voer hier uw gewenste station in:',
                   background='#FFCD4C',
                   height=3
                   )
     koptekst.pack()
 
-    global entry
-    entry = Entry(master=achterkant)
-    entry.pack()
+    #
+    box1 = Frame(master=achterkant,
+                bg= '#FFCD4C'
+                )
+    box1.pack()
 
-    knop = Button(master=achterkant, text="Invullen", width=10, command=station_invullen)
-    knop.pack()
+    # Invoer balk
+    global entry
+    entry = Entry(master=box1,
+                  font= ('Raleway', 15),
+                  width= 15)
+    entry.pack(side= LEFT)
+
+    #Knop om de invoer actieveren
+    global invulknop
+    invulknop = Button(master=box1, text="Invullen",
+                  font = ('Raleway', 15),
+                  bg= '#053593',
+                  fg= 'white',
+                  width= 15,
+                  command=station_invullen)
+    invulknop.pack(side= RIGHT)
 
     global reisinformatie
     reisinformatie = Text(master=achterkant,
@@ -96,5 +120,8 @@ def venster_openen():
                          fg= 'white',
                          command=root.destroy)
     knopsluiten.pack(side=RIGHT, pady=10, padx=10)
+
+    if taal != "NL":
+        taalENG()
 
     root.mainloop()

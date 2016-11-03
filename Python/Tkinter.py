@@ -1,33 +1,42 @@
 from tkinter import *
-import Tkinter_Inputbox
+import AnderStation
 import ReistijdenUtrechtCentraal
 
-#Functie om de taal naar het Nederlands aan te passen.
+# Functie om de taal naar het Nederlands aan te passen.
 def taalNL():
     koptekst["text"] = "Actuele reistijden"
     knopHier["text"] = "Huidig Station"
     knopAnders["text"] = "Ander Station"
     knopsluiten["text"] = "Programma Sluiten"
+    global taal
+    taal = "NL"
 
-#Functie om de taal naar het Engels aan te passen.
+
+# Functie om de taal naar het Engels aan te passen.
 def taalENG():
     koptekst["text"] = "Actual traveltimes"
     knopHier["text"] = "Current Station"
     knopAnders["text"] = "Other Station"
     knopsluiten["text"] = "Close Programme"
+    global taal
+    taal = "ENG"
 
-#Hoofdscherm
+
+global taal
+taal = "NL"
+
+# Hoofdscherm
 root = Tk()
 root.title("NS actuele vertrektijden")
 root.geometry("1500x1000")
 
-#Achtergrond kleur
+# Achtergrond kleur
 achterkant = Label(master=root,
                    background="#FFCD4C"
 )
 achterkant.pack(fill=BOTH, expand=True)
 
-#Tekst boven plaatje
+# Tekst boven plaatje
 koptekst = Label(master=achterkant,
               font = ('Raleway', 30),
               text='Actuele reistijden',
@@ -36,7 +45,7 @@ koptekst = Label(master=achterkant,
               )
 koptekst.pack()
 
-#Plaatje
+# Plaatje
 plaatjeNS = PhotoImage(file='plaatjeNS.gif')
 
 plaatje = Label(master=achterkant,
@@ -51,8 +60,8 @@ balk = Canvas(master=achterkant,
                 height=100)
 balk.pack(side=BOTTOM, fill=X)
 
-#knoppen voor de taal
-#Taal knop 1
+# knoppen voor de taal
+# Taal knop 1
 vlagNL = PhotoImage(file='vlagNL.gif').subsample(4)
 knopNL = Button(master=balk,
                image=vlagNL,
@@ -60,7 +69,7 @@ knopNL = Button(master=balk,
                )
 knopNL.pack(side=LEFT, pady=10, padx=10)
 
-#Taal knop 2
+# Taal knop 2
 vlagENG= PhotoImage(file='vlagENG.gif').subsample(4)
 knopENG = Button(master=balk,
                image=vlagENG,
@@ -68,7 +77,7 @@ knopENG = Button(master=balk,
                )
 knopENG.pack(side=LEFT, pady=10, padx=10)
 
-#Knop sluiten
+# Knop sluiten
 knopsluiten = Button(master=balk,
                      text= "Programma sluiten",
                      font= ('Raleway', 12),
@@ -77,13 +86,13 @@ knopsluiten = Button(master=balk,
                      command=root.destroy)
 knopsluiten.pack(side=RIGHT, pady=10, padx=10)
 
-#Een Frame waar de knoppen Hier en Anders in staan
+# Een Frame waar de knoppen Hier en Anders in staan
 box = Frame(master=achterkant,
             bg= '#FFCD4C'
             )
 box.pack()
 
-#Knop eigenstation
+# Knop eigenstation
 knopHier = Button(master=box,
                text="Huidig Station",
                font = ('Raleway', 15),
@@ -91,18 +100,18 @@ knopHier = Button(master=box,
                fg= 'white',
                height= 3,
                width= 15,
-               command= ReistijdenUtrechtCentraal.venster_openen)
+               command= lambda: ReistijdenUtrechtCentraal.venster_openen(taal))
 knopHier.pack(side= LEFT, padx= 20, pady= 30)
 
-#Knop anderstation
+# Knop anderstation
 knopAnders = Button(master=box,
-               text="Ander Station",
-               font = ('Raleway', 15),
-               bg= '#053593',
-               fg= 'white',
-               height= 3,
-               width= 15,
-               command=Tkinter_Inputbox.venster_openen)
+                    text="Ander Station",
+                    font = ('Raleway', 15),
+                    bg= '#053593',
+                    fg= 'white',
+                    height= 3,
+                    width= 15,
+                    command= lambda: AnderStation.venster_openen(taal))
 knopAnders.pack(side= RIGHT, padx= 20, pady= 30)
 
 root.mainloop()
