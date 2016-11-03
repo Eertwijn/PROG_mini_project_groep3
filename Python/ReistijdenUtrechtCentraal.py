@@ -56,7 +56,7 @@ def venster_openen(meegeeftaal):
 
     #Onderste blauwe balk
     balk = Canvas(master=achterkant,
-                    bg= 'blue',
+                    bg= '#053593',
                     height=100)
     balk.pack(side=BOTTOM, fill=X)
 
@@ -82,7 +82,7 @@ def venster_openen(meegeeftaal):
     knopsluiten = Button(master=balk,
                          text= "Venster sluiten",
                          font= ('Raleway', 12),
-                         bg= 'blue',
+                         bg= '#053593',
                          fg= 'white',
                          command=root.destroy)
     knopsluiten.pack(side=RIGHT, pady=10, padx=10)
