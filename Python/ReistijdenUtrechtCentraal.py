@@ -67,17 +67,17 @@ def venster_openen(meegeeftaal):
     # knoppen voor de taal
     # Taal knop 1
     vlagNL = PhotoImage(file='vlagNL.gif').subsample(4)
-    knop1 = Button(master=balk,
+    knopNL = Button(master=balk,
                    image=vlagNL,
                    command=taalNL)
-    knop1.pack(side=LEFT, pady=10, padx=10)
+    knopNL.pack(side=LEFT, pady=10, padx=10)
 
     # Taal knop 2
     vlagENG = PhotoImage(file='vlagENG.gif').subsample(4)
-    knop2 = Button(master=balk,
+    knopENG = Button(master=balk,
                    image=vlagENG,
                    command=taalENG)
-    knop2.pack(side=LEFT, pady=10, padx=10)
+    knopENG.pack(side=LEFT, pady=10, padx=10)
 
     # Knop sluiten
     global knopsluiten
