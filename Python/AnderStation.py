@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 import MasterApp
 
+
 def taalNL():
     koptekst["text"] = "Voer hier uw gewenste station in:"
     knopsluiten["text"] = "Venster Sluiten"
@@ -10,6 +11,7 @@ def taalNL():
     taal = "NL"
     reisinformatie.delete(1.0, END)
     station_invullen()
+
 
 def taalENG():
     koptekst["text"] = "Please enter your station here:"
@@ -20,10 +22,11 @@ def taalENG():
     reisinformatie.delete(1.0, END)
     station_invullen()
 
+
 def station_invullen():
     station = entry.get()
     if station != "":
-        if station in MasterApp.stationsLijst():
+        if station in stationslijst:
             reisinformatie.delete(1.0, END)
             reisinformatie.insert(END, MasterApp.tijden_ophalen(station, taal))
         else:
@@ -34,6 +37,9 @@ def venster_openen(meegeeftaal):
     global taal
     taal = meegeeftaal
 
+    global stationslijst
+    stationslijst = MasterApp.stationsLijst()
+
     root = Toplevel()
     root.title("NS actuele vertrektijden")
     root.geometry("1500x1000")
@@ -43,7 +49,7 @@ def venster_openen(meegeeftaal):
     )
     achterkant.pack(fill=BOTH, expand=True)
 
-    #Tekst boven
+    # Tekst boven
     global koptekst
     koptekst = Label(master=achterkant,
                   font = ('Raleway', 30),
@@ -53,7 +59,7 @@ def venster_openen(meegeeftaal):
                   )
     koptekst.pack()
 
-    #
+    # Frame om invulding en de nkop mooi naast elkaar te krijgen
     box1 = Frame(master=achterkant,
                 bg= '#FFCD4C'
                 )
@@ -66,7 +72,7 @@ def venster_openen(meegeeftaal):
                   width= 15)
     entry.pack(side= LEFT)
 
-    #Knop om de invoer actieveren
+    # Knop om de invoer actieveren
     global invulknop
     invulknop = Button(master=box1, text="Invullen",
                   font = ('Raleway', 15),
@@ -88,30 +94,30 @@ def venster_openen(meegeeftaal):
               )
     reisinformatie.pack()
 
-    #Onderste blauwe balk
+    # Onderste blauwe balk
     balk = Canvas(master=achterkant,
                     bg= '#053593',
                     height=100)
     balk.pack(side=BOTTOM, fill=X)
 
-    #knoppen voor de taal
-    #Taal knop 1
+    # knoppen voor de taal
+    # Taal knop 1
     vlagNL = PhotoImage(file='vlagNL.gif').subsample(4)
-    knop1 = Button(master=balk,
+    knopNL = Button(master=balk,
                    image=vlagNL,
                    command=taalNL,
                    )
-    knop1.pack(side=LEFT, pady=10, padx=10)
+    knopNL.pack(side=LEFT, pady=10, padx=10)
 
-    #Taal knop 2
+    # Taal knop 2
     vlagENG= PhotoImage(file='vlagENG.gif').subsample(4)
-    knop2 = Button(master=balk,
+    knopENG = Button(master=balk,
                    image=vlagENG,
                    command=taalENG,
                    )
-    knop2.pack(side=LEFT, pady=10, padx=10)
+    knopENG.pack(side=LEFT, pady=10, padx=10)
 
-    #Knop sluiten
+    # Knop sluiten
     global knopsluiten
     knopsluiten = Button(master=balk,
                          text= "Venster sluiten",

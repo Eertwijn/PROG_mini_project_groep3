@@ -1,7 +1,6 @@
 from tkinter import *
 import MasterApp
-import requests
-import xmltodict
+
 
 #Functies voor het wijzigen van de taal
 def taalNL():
