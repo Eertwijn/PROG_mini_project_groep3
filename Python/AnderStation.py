@@ -5,7 +5,7 @@ import MasterApp
 
 def taalNL():
     """
-    Deze functie verandert de text van alle dingen naar Nederlands.
+    Deze functie verandert alle text naar Nederlands.
     """
     koptekst["text"] = "Voer hier uw gewenste station in:"
     knopsluiten["text"] = "Venster Sluiten"
@@ -17,7 +17,7 @@ def taalNL():
 
 def taalENG():
     """
-    Deze functie verandert de text van alle dingen naar Engels.
+    Deze functie verandert alle text naar Engels.
     """
     koptekst["text"] = "Please enter your station here:"
     knopsluiten["text"] = "Close Window"
@@ -29,8 +29,8 @@ def taalENG():
 
 def station_invullen():
     """
-    Deze functie kijkt eerst of er iets ingevuld is, is dat het geval kijkt het of het een bestaand station is en print daarvan de info uit.
-    Als het station niet bestaat geeft hij een foutmelding daarover aan de gebruiker.
+    Deze functie kijkt eerst of er iets ingevuld is, is dat het geval dan kijkt de functie of het een bestaand station is en print daarvan de info uit.
+    Als het station niet bestaat geeft de functie een foutmelding aan de gebruiker.
     """
 
     station = entry.get()
@@ -71,7 +71,7 @@ def venster_openen(meegeeftaal):
                      height=3)
     koptekst.pack()
 
-    # Frame om invulding en de knop mooi naast elkaar te krijgen
+    # Frame om invoer balk en de knop mooi naast elkaar te krijgen
     box1 = Frame(master=achterkant,
                  bg='#FFCD4C')
     box1.pack()
@@ -83,7 +83,7 @@ def venster_openen(meegeeftaal):
                   width=15)
     entry.pack(side=LEFT)
 
-    # Knop om de invoer actieveren
+    # Knop om de invoer te activeren
     global invulknop
     invulknop = Button(master=box1,
                        text="Invullen",
@@ -110,14 +110,14 @@ def venster_openen(meegeeftaal):
     balk.pack(side=BOTTOM, fill=X)
 
     # knoppen voor de taal
-    # Taal knop 1
+    # Taal knop Nederlands
     vlagNL = PhotoImage(file='vlagNL.gif').subsample(4)
     knopNL = Button(master=balk,
                     image=vlagNL,
                     command=taalNL)
     knopNL.pack(side=LEFT, pady=10, padx=10)
 
-    # Taal knop 2
+    # Taal knop Engels
     vlagENG = PhotoImage(file='vlagENG.gif').subsample(4)
     knopENG = Button(master=balk,
                      image=vlagENG,
