@@ -55,6 +55,7 @@ def venster_openen(meegeeftaal):
                   )
     reisinformatie.pack()
     reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
+    reisinformatie.config(state=DISABLED)
 
     # Onderste blauwe balk
     balk = Canvas(master=achterkant,
