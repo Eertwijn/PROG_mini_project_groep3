@@ -40,6 +40,7 @@ def station_invullen():
         if station in stationslijst:
             reisinformatie.delete(1.0, END)
             reisinformatie.insert(END, MasterApp.tijden_ophalen(station, taal))
+            reisinformatie.config(state=DISABLED)
         else:
             messagebox.showerror("Foutmelding","Dat station kennen wij niet")
 
