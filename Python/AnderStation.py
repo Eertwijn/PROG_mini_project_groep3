@@ -12,7 +12,7 @@ def taalNL():
     invulknop["text"] = "invullen"
     global taal
     taal = "NL"
-    reisinformatie.delete(1.0, END)
+    #reisinformatie.delete(1.0, END)
     station_invullen()
 
 
@@ -25,7 +25,7 @@ def taalENG():
     invulknop["text"] = "Typ"
     global taal
     taal = "ENG"
-    reisinformatie.delete(1.0, END)
+    #reisinformatie.delete(1.0, END)
     station_invullen()
 
 
@@ -38,6 +38,7 @@ def station_invullen():
     station = entry.get()
     if station != "":
         if station in stationslijst:
+            reisinformatie.config(state=NORMAL)
             reisinformatie.delete(1.0, END)
             reisinformatie.insert(END, MasterApp.tijden_ophalen(station, taal))
             reisinformatie.config(state=DISABLED)
@@ -102,6 +103,7 @@ def venster_openen(meegeeftaal):
                           height=25,
                           width=150)
     reisinformatie.pack()
+    reisinformatie.config(state=DISABLED)
 
     # Onderste blauwe balk
     balk = Canvas(master=achterkant,
