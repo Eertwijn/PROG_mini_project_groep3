@@ -60,6 +60,7 @@ def tijden_ophalen(station, taal):
     vertrekXML = xmltodict.parse(response.text)
 
     nuttige_info = ""
+    # Hij kijkt wat de meegegeven taal is en slaat de informatie van elke vertrekkende trein in die taal op met een for loop.
     if taal == "NL":
         for vertek in vertrekXML["ActueleVertrekTijden"]["VertrekkendeTrein"]:
             if "VertrekVertragingTekst" not in vertek:

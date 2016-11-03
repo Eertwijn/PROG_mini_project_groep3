@@ -4,6 +4,9 @@ import MasterApp
 
 
 def taalNL():
+    """
+    Deze functie verandert de text van alle dingen naar Nederlands.
+    """
     koptekst["text"] = "Voer hier uw gewenste station in:"
     knopsluiten["text"] = "Venster Sluiten"
     invulknop["text"] = "invullen"
@@ -14,6 +17,9 @@ def taalNL():
 
 
 def taalENG():
+    """
+    Deze functie verandert de text van alle dingen naar Engels.
+    """
     koptekst["text"] = "Please enter your station here:"
     knopsluiten["text"] = "Close Window"
     invulknop["text"] = "Typ"
@@ -24,6 +30,11 @@ def taalENG():
 
 
 def station_invullen():
+    """
+    Deze functie kijkt eerst of er iets ingevuld is, is dat het geval kijkt het of het een bestaand station is en print daarvan de info uit.
+    Als het station niet bestaat geeft hij een foutmelding daarover aan de gebruiker.
+    """
+
     station = entry.get()
     if station != "":
         if station in stationslijst:
@@ -34,6 +45,9 @@ def station_invullen():
 
 
 def venster_openen(meegeeftaal):
+    """
+    Deze functie openend een nieuw venster en kijkt of de taal niet Nederlands is, is dat het geval dan roept hij taalENG() aan.
+    """
     global taal
     taal = meegeeftaal
 
