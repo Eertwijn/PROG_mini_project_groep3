@@ -1,7 +1,6 @@
 from tkinter import *
 import MasterApp
-import requests
-import xmltodict
+
 
 # Functies voor het wijzigen van de taal
 def taalNL():
@@ -25,6 +24,7 @@ def venster_openen(meegeeftaal):
     root = Toplevel()
     root.title("NS actuele vertrektijden")
     root.geometry("1500x1000")
+
     global taal
     taal = meegeeftaal
 
@@ -86,5 +86,8 @@ def venster_openen(meegeeftaal):
                          fg= 'white',
                          command=root.destroy)
     knopsluiten.pack(side=RIGHT, pady=10, padx=10)
+
+    if taal != "NL":
+        taalENG()
 
     root.mainloop()
