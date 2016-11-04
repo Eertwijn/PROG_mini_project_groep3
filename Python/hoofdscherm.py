@@ -18,7 +18,7 @@ def taalENG():
     koptekst["text"] = "Actual traveltimes"
     knopHier["text"] = "Current Station"
     knopAnders["text"] = "Other Station"
-    knopsluiten["text"] = "Close Programme"
+    knopsluiten["text"] = "Close Program"
     global taal
     taal = "ENG"
 
@@ -38,7 +38,7 @@ achterkant.pack(fill=BOTH, expand=True)
 # Tekst boven plaatje
 koptekst = Label(master=achterkant,
                  font=('Raleway', 30),
-                 text='Actuele reistijden',
+                 text='Actuele Reistijden',
                  bg='#%02x%02x%02x' % (255, 205, 76),
                  height=3)
 koptekst.pack()
@@ -75,7 +75,7 @@ knopENG.pack(side=LEFT, pady=10, padx=10)
 
 # Knop sluiten
 knopsluiten = Button(master=balk,
-                     text="Programma sluiten",
+                     text="Programma Sluiten",
                      font=('Raleway', 12),
                      bg='#%02x%02x%02x' % (5, 53, 147),
                      fg='white',

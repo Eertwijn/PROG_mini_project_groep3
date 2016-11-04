@@ -47,16 +47,27 @@ def venster_openen(meegeeftaal):
                      height=3)
     koptekst.pack()
 
+    # Frame voor de text en de scrollbar
+    textenscrollframe = Frame(master=achterkant)
+
+    # De scrollbar voor de text
+    scrollbar = Scrollbar(master=textenscrollframe)
+    scrollbar.pack(side=RIGHT, fill=Y)
+
     # Tekst box aanmaken
     global reisinformatie
-    reisinformatie = Text(master=achterkant,
+    reisinformatie = Text(master=textenscrollframe,
+                          wrap=NONE,
                           font=('Raleway', 16),
                           bg='#%02x%02x%02x' % (255, 205, 76),
                           height=25,
                           width=150)
     reisinformatie.pack()
+    scrollbar.config(command=reisinformatie.yview)
     reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
     reisinformatie.config(state=DISABLED)
+
+    textenscrollframe.pack()
 
     # Onderste blauwe balk
     balk = Canvas(master=achterkant,
@@ -68,21 +79,21 @@ def venster_openen(meegeeftaal):
     # Taal knop Nederlands
     vlagNL = PhotoImage(file='vlagNL.gif').subsample(4)
     knopNL = Button(master=balk,
-                   image=vlagNL,
-                   command=taalNL)
+                    image=vlagNL,
+                    command=taalNL)
     knopNL.pack(side=LEFT, pady=10, padx=10)
 
     # Taal knop Engels
     vlagENG = PhotoImage(file='vlagENG.gif').subsample(4)
     knopENG = Button(master=balk,
-                   image=vlagENG,
-                   command=taalENG)
+                     image=vlagENG,
+                     command=taalENG)
     knopENG.pack(side=LEFT, pady=10, padx=10)
 
     # Knop sluiten
     global knopsluiten
     knopsluiten = Button(master=balk,
-                         text="Venster sluiten",
+                         text="Venster Sluiten",
                          font=('Raleway', 12),
                          bg='#%02x%02x%02x' % (5, 53, 147),
                          fg='white',

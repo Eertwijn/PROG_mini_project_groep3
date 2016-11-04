@@ -59,7 +59,7 @@ def venster_openen(meegeeftaal):
     root.geometry("1500x1000")
     root.bind("<Return>", station_invullen)
 
-    #Achtergrond kleur
+    # Achtergrond kleur
     achterkant = Label(master=root,
                        bg='#%02x%02x%02x' % (255, 205, 76))
     achterkant.pack(fill=BOTH, expand=True)
@@ -96,14 +96,27 @@ def venster_openen(meegeeftaal):
                        command=station_invullen)
     invulknop.pack(side=RIGHT)
 
+    # Frame voor de text en de scrollbar
+    textenscrollframe = Frame(master=achterkant)
+
+    # De scrollbar voor de text
+    scrollbar = Scrollbar(master=textenscrollframe)
+    scrollbar.pack(side=RIGHT, fill=Y)
+
+    # Widget om de text in te stoppen
     global reisinformatie
-    reisinformatie = Text(master=achterkant,
+    reisinformatie = Text(master=textenscrollframe,
                           font=('Raleway', 16),
                           bg='#%02x%02x%02x' % (255, 205, 76),
                           height=25,
-                          width=150)
+                          width=150,
+                          yscrollcommand=scrollbar.set)
     reisinformatie.pack()
     reisinformatie.config(state=DISABLED)
+
+    scrollbar.config(command=reisinformatie.yview)
+
+    textenscrollframe.pack()
 
     # Onderste blauwe balk
     balk = Canvas(master=achterkant,
@@ -111,7 +124,7 @@ def venster_openen(meegeeftaal):
                   height=100)
     balk.pack(side=BOTTOM, fill=X)
 
-    # knoppen voor de talen
+    # Knoppen voor de talen
     # Taal knop Nederlands
     vlagNL = PhotoImage(file='vlagNL.gif').subsample(4)
     knopNL = Button(master=balk,
@@ -129,7 +142,7 @@ def venster_openen(meegeeftaal):
     # Knop sluiten
     global knopsluiten
     knopsluiten = Button(master=balk,
-                         text="Venster sluiten",
+                         text="Venster Sluiten",
                          font=('Raleway', 12),
                          bg='#%02x%02x%02x' % (5, 53, 147),
                          fg='white',
