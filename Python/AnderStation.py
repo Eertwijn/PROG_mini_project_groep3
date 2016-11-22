@@ -4,26 +4,26 @@ import MasterApp
 
 
 def taalNL():
+    global g_taal
     """
     Deze functie verandert alle text naar Nederlands.
     """
-    koptekst["text"] = "Voer hier uw gewenste station in:"
-    knopsluiten["text"] = "Venster Sluiten"
-    invulknop["text"] = "invullen"
-    global taal
-    taal = "NL"
+    g_koptekst["text"] = "Voer hier uw gewenste station in:"
+    g_knopsluiten["text"] = "Venster Sluiten"
+    g_invulknop["text"] = "invullen"
+    g_taal = "NL"
     station_invullen()
 
 
 def taalENG():
+    global g_taal
     """
     Deze functie verandert alle text naar Engels.
     """
-    koptekst["text"] = "Please enter your station here:"
-    knopsluiten["text"] = "Close Window"
-    invulknop["text"] = "Enter"
-    global taal
-    taal = "ENG"
+    g_koptekst["text"] = "Please enter your station here:"
+    g_knopsluiten["text"] = "Close Window"
+    g_invulknop["text"] = "Enter"
+    g_taal = "ENG"
     station_invullen()
 
 
@@ -33,26 +33,24 @@ def station_invullen(event=None):
     Als het station niet bestaat geeft de functie een foutmelding aan de gebruiker.
     """
 
-    station = entry.get()
+    station = g_entry.get()
     if station != "":
-        if station in stationslijst:
-            reisinformatie.config(state=NORMAL)
-            reisinformatie.delete(1.0, END)
-            reisinformatie.insert(END, MasterApp.tijden_ophalen(station, taal))
-            reisinformatie.config(state=DISABLED)
+        if station in g_stationslijst:
+            g_reisinformatie.config(state=NORMAL)
+            g_reisinformatie.delete(1.0, END)
+            g_reisinformatie.insert(END, MasterApp.tijden_ophalen(station, g_taal))
+            g_reisinformatie.config(state=DISABLED)
         else:
             messagebox.showerror("Foutmelding", "Dat station kennen wij niet")
 
 
 def venster_openen(meegeeftaal):
+    global g_taal, g_knopsluiten, g_reisinformatie, g_invulknop, g_entry, g_koptekst, g_stationslijst
+    g_taal = meegeeftaal
+    g_stationslijst = MasterApp.stationsLijst()
     """
     Deze functie openend een nieuw venster en kijkt of de taal niet Nederlands is, is dat het geval dan roept hij taalENG() aan.
     """
-    global taal
-    taal = meegeeftaal
-
-    global stationslijst
-    stationslijst = MasterApp.stationsLijst()
 
     root = Toplevel()
     root.title("NS actuele vertrektijden")
@@ -65,13 +63,12 @@ def venster_openen(meegeeftaal):
     achterkant.pack(fill=BOTH, expand=True)
 
     # Tekst boven
-    global koptekst
-    koptekst = Label(master=achterkant,
+    g_koptekst = Label(master=achterkant,
                      font=('Raleway', 30),
                      text='Voer hier uw gewenste station in:',
                      bg='#%02x%02x%02x' % (255, 205, 76),
                      height=3)
-    koptekst.pack()
+    g_koptekst.pack()
 
     # Frame om invoer balk en de knop mooi naast elkaar te krijgen
     box1 = Frame(master=achterkant,
@@ -79,22 +76,20 @@ def venster_openen(meegeeftaal):
     box1.pack()
 
     # Invoer balk
-    global entry
-    entry = Entry(master=box1,
+    g_entry = Entry(master=box1,
                   font=('Raleway', 15),
                   width=15)
-    entry.pack(side=LEFT)
+    g_entry.pack(side=LEFT)
 
     # Knop om de invoer te activeren
-    global invulknop
-    invulknop = Button(master=box1,
+    g_invulknop = Button(master=box1,
                        text="Invullen",
                        font=('Raleway', 15),
                        bg='#%02x%02x%02x' % (5, 53, 147),
                        fg='white',
                        width=15,
                        command=station_invullen)
-    invulknop.pack(side=RIGHT)
+    g_invulknop.pack(side=RIGHT)
 
     # Frame voor de text en de scrollbar
     textenscrollframe = Frame(master=achterkant)
@@ -104,17 +99,16 @@ def venster_openen(meegeeftaal):
     scrollbar.pack(side=RIGHT, fill=Y)
 
     # Widget om de text in te stoppen
-    global reisinformatie
-    reisinformatie = Text(master=textenscrollframe,
+    g_reisinformatie = Text(master=textenscrollframe,
                           font=('Raleway', 16),
                           bg='#%02x%02x%02x' % (255, 205, 76),
                           height=25,
                           width=150,
                           yscrollcommand=scrollbar.set)
-    reisinformatie.pack()
-    reisinformatie.config(state=DISABLED)
+    g_reisinformatie.pack()
+    g_reisinformatie.config(state=DISABLED)
 
-    scrollbar.config(command=reisinformatie.yview)
+    scrollbar.config(command=g_reisinformatie.yview)
 
     textenscrollframe.pack()
 
@@ -140,16 +134,15 @@ def venster_openen(meegeeftaal):
     knopENG.pack(side=LEFT, pady=10, padx=10)
 
     # Knop sluiten
-    global knopsluiten
-    knopsluiten = Button(master=balk,
+    g_knopsluiten = Button(master=balk,
                          text="Venster Sluiten",
                          font=('Raleway', 12),
                          bg='#%02x%02x%02x' % (5, 53, 147),
                          fg='white',
                          command=root.destroy)
-    knopsluiten.pack(side=RIGHT, pady=10, padx=10)
+    g_knopsluiten.pack(side=RIGHT, pady=10, padx=10)
 
-    if taal != "NL":
+    if g_taal != "NL":
         taalENG()
 
     root.mainloop()
