@@ -110,3 +110,4 @@ knopAnders = Button(master=box,
 knopAnders.pack(side=RIGHT, padx=20, pady=30)
 
 root.mainloop()
+

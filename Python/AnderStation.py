@@ -32,7 +32,6 @@ def station_invullen(event=None):
     Deze functie kijkt eerst of er iets ingevuld is, is dat het geval dan kijkt de functie of het een bestaand station is en print daarvan de info uit.
     Als het station niet bestaat geeft de functie een foutmelding aan de gebruiker.
     """
-
     station = entry.get()
     if station != "":
         if station in stationslijst:

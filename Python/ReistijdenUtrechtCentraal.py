@@ -24,6 +24,8 @@ def taalENG():
     reisinformatie.config(state=DISABLED)
 
 
+
+
 def venster_openen(meegeeftaal):
     # Functie voor het openen van het nieuwe venster
     root = Toplevel()

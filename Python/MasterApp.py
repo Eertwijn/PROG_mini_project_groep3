@@ -11,6 +11,7 @@ def stationsLijst():
     # Aanroepen van het ns stations xml
     stationsVanAPI = 'http://webservices.ns.nl/ns-api-stations-v2'
     responseStationLijst = requests.get(stationsVanAPI, auth=inlogegevens)
+
     # parsen van de tekst naar een variable
     stationsNamen = xmltodict.parse(responseStationLijst.text)
     checkWelkStation = stationsNamen['Stations']['Station']
