@@ -1,6 +1,6 @@
 import requests
 import xmltodict
-
+import doctest
 
 def stationsLijst():
     """Deze functie doet een request naar de ns api. Het response van de api wordt geparst,

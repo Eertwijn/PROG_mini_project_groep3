@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 import MasterApp
-
+import doctest
 
 def taalNL():
     """

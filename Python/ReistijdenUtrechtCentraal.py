@@ -1,6 +1,6 @@
 from tkinter import *
 import MasterApp
-
+import doctest
 
 def taalNL():
     # Functie om de taal naar het Nederlands aan te passen.

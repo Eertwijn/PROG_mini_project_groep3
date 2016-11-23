@@ -1,7 +1,7 @@
 from tkinter import *
 import AnderStation
 import ReistijdenUtrechtCentraal
-
+import doctest
 
 def taalNL():
     # Functie om de taal naar het Nederlands aan te passen.
