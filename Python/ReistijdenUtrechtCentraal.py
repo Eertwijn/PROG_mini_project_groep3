@@ -1,39 +1,34 @@
 from tkinter import *
 import MasterApp
-import doctest
+
 
 def taalNL():
     # Functie om de taal naar het Nederlands aan te passen.
-    knopsluiten["text"] = "Venster Sluiten"
-    global taal
-    taal = "NL"
-    reisinformatie.config(state=NORMAL)
-    reisinformatie.delete(1.0, END)
-    reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
-    reisinformatie.config(state=DISABLED)
+    global g_taal
+    g_taal = "NL"
+    g_knopsluiten["text"] = "Venster Sluiten"
+    g_reisinformatie.config(state=NORMAL)
+    g_reisinformatie.delete(1.0, END)
+    g_reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", g_taal))
+    g_reisinformatie.config(state=DISABLED)
 
-
+# Functie om de taal naar het Engels aan te passen.
 def taalENG():
-    # Functie om de taal naar het Engels aan te passen.
-    knopsluiten["text"] = "Close Window"
-    global taal
-    taal = "ENG"
-    reisinformatie.config(state=NORMAL)
-    reisinformatie.delete(1.0, END)
-    reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
-    reisinformatie.config(state=DISABLED)
+    global g_taal
+    g_taal = "ENG"
+    g_knopsluiten["text"] = "Close Window"
+    g_reisinformatie.config(state=NORMAL)
+    g_reisinformatie.delete(1.0, END)
+    g_reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", g_taal))
+    g_reisinformatie.config(state=DISABLED)
 
-
-
-
+# Functie voor het openen van het nieuwe venster
 def venster_openen(meegeeftaal):
-    # Functie voor het openen van het nieuwe venster
+    global g_taal, g_koptekst, g_reisinformatie, g_knopsluiten
+    g_taal = meegeeftaal
     root = Toplevel()
     root.title("NS actuele vertrektijden")
     root.geometry("1500x1000")
-
-    global taal
-    taal = meegeeftaal
 
     # Achtergrond kleur
     achterkant = Label(master=root,
@@ -41,7 +36,6 @@ def venster_openen(meegeeftaal):
     achterkant.pack(fill=BOTH, expand=True)
 
     # Tekst boven
-    global koptekst
     koptekst = Label(master=achterkant,
                      font=('Raleway', 30),
                      text='Utrecht Centraal',
@@ -57,17 +51,16 @@ def venster_openen(meegeeftaal):
     scrollbar.pack(side=RIGHT, fill=Y)
 
     # Tekst box aanmaken
-    global reisinformatie
-    reisinformatie = Text(master=textenscrollframe,
+    g_reisinformatie = Text(master=textenscrollframe,
                           wrap=NONE,
                           font=('Raleway', 16),
                           bg='#%02x%02x%02x' % (255, 205, 76),
                           height=25,
                           width=150)
-    reisinformatie.pack()
-    scrollbar.config(command=reisinformatie.yview)
-    reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", taal))
-    reisinformatie.config(state=DISABLED)
+    g_reisinformatie.pack()
+    scrollbar.config(command=g_reisinformatie.yview)
+    g_reisinformatie.insert(END, MasterApp.tijden_ophalen("ut", g_taal))
+    g_reisinformatie.config(state=DISABLED)
 
     textenscrollframe.pack()
 
@@ -93,16 +86,15 @@ def venster_openen(meegeeftaal):
     knopENG.pack(side=LEFT, pady=10, padx=10)
 
     # Knop sluiten
-    global knopsluiten
-    knopsluiten = Button(master=balk,
+    g_knopsluiten = Button(master=balk,
                          text="Venster Sluiten",
                          font=('Raleway', 12),
                          bg='#%02x%02x%02x' % (5, 53, 147),
                          fg='white',
                          command=root.destroy)
-    knopsluiten.pack(side=RIGHT, pady=10, padx=10)
+    g_knopsluiten.pack(side=RIGHT, pady=10, padx=10)
 
-    if taal != "NL":
+    if g_taal != "NL":
         taalENG()
 
     root.mainloop()

@@ -1,29 +1,27 @@
 from tkinter import *
 import AnderStation
 import ReistijdenUtrechtCentraal
-import doctest
 
+# Functie om de taal naar het Nederlands aan te passen.
 def taalNL():
-    # Functie om de taal naar het Nederlands aan te passen.
+    global g_taal
     koptekst["text"] = "Actuele reistijden"
     knopHier["text"] = "Huidig Station"
     knopAnders["text"] = "Ander Station"
     knopsluiten["text"] = "Programma Sluiten"
-    global taal
-    taal = "NL"
+    g_taal = "NL"
 
-
+# Functie om de taal naar het Engels aan te passen.
 def taalENG():
-    # Functie om de taal naar het Engels aan te passen.
+    global g_taal
     koptekst["text"] = "Actual traveltimes"
     knopHier["text"] = "Current Station"
     knopAnders["text"] = "Other Station"
     knopsluiten["text"] = "Close Program"
-    global taal
-    taal = "ENG"
+    g_taal = "ENG"
 
 
-taal = "NL"
+g_taal = "NL"
 
 # Hoofdscherm
 root = Tk()
@@ -95,7 +93,7 @@ knopHier = Button(master=box,
                   fg='white',
                   height=3,
                   width=15,
-                  command=lambda: ReistijdenUtrechtCentraal.venster_openen(taal))
+                  command=lambda: ReistijdenUtrechtCentraal.venster_openen(g_taal))
 knopHier.pack(side=LEFT, padx=20, pady=30)
 
 # Knop anderstation
@@ -106,8 +104,7 @@ knopAnders = Button(master=box,
                     fg='white',
                     height=3,
                     width=15,
-                    command=lambda: AnderStation.venster_openen(taal))
+                    command=lambda: AnderStation.venster_openen(g_taal))
 knopAnders.pack(side=RIGHT, padx=20, pady=30)
 
 root.mainloop()
-
